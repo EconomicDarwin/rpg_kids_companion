@@ -1,0 +1,114 @@
+{
+  "_comment": "The kid-facing allow-list for tools/export_player_data.py. Canon (rpg_kids) says WHAT exists. This file says what ships to the tablets and how it reads for a 5 and a 7 year old. Keys must match canon names exactly (trailing parentheticals stripped). Anything in canon with no entry here fails the export on purpose. That is the secrets filter.",
+  "party": {
+    "name": "The Lima Sisters",
+    "goldUnknownNote": "We will count our gold at the next game!",
+    "sharedItems": {
+      "The Ancient Field Log": { "icon": "📔", "text": "An old explorer's notebook full of clues." },
+      "The Wayfinder Prism": { "icon": "🔮", "text": "A crystal that turns light into rainbows." },
+      "Pouch of Star-Seeds": { "icon": "✨", "text": "Tiny seeds that glow like stars. 3 uses left." },
+      "Mom's letter": { "icon": "💌", "name": "Mom's Letter", "text": "Sealed with purple wax. It is from Mom!" },
+      "Torn letter from Odbert's box": { "icon": "📜", "name": "The Torn Letter", "text": "From Odbert's box. Part of it is missing." },
+      "Iridescent shield-boss stone": { "icon": "🌈", "name": "The Shield-Boss Stone", "text": "A shimmering stone. It fits the picture on the cavern wall." }
+    }
+  },
+  "heroes": [
+    {
+      "id": "rainbow_with_clouds",
+      "canonName": "Rainbow with Clouds",
+      "accent": "#8b5cf6",
+      "banner": "heroes/rainbow_with_clouds_crescent_moon_shield.png",
+      "tagline": "An elf healer. Her staff glows with rainbow light.",
+      "abilities": {
+        "Searing Light": { "icon": "💥", "text": "Shoot a beam of light at a monster up to 4 squares away." },
+        "Healing Touch": { "icon": "💖", "text": "Remove 1 damage from yourself or a friend next to you." },
+        "Potion Brewer": { "icon": "🧪", "text": "After a battle, refill 1 potion that you or a friend used." }
+      },
+      "spells": {
+        "Crescent Moon Shield": {
+          "text": "You and friends next to you get 1 extra armor die for 2 turns.",
+          "limit": "After you cast it, the moon must rest for 3 turns."
+        }
+      },
+      "items": {
+        "Ring of Sisters Lima": {
+          "icon": "💍",
+          "art": "equipment/ring_of_sisters_lima_card.png",
+          "text": "Worn on her hand. It glows when the sisters are together."
+        }
+      }
+    },
+    {
+      "id": "sky_saver",
+      "canonName": "Sky-Saver",
+      "accent": "#e05a2b",
+      "banner": "heroes/sky_saver_meteor_strike.png",
+      "tagline": "Strong and brave. She hits hard and protects her sisters.",
+      "abilities": {
+        "Cloud-Cutter Strike": { "icon": "⚔️", "text": "Swing your blade at a monster right next to you." },
+        "Knockback Attack": { "icon": "💨", "text": "Attack with 1 less die. If you hit, push the monster back 4 squares." },
+        "Retaliation": { "icon": "🛡️", "text": "If a monster hurt you and you hit it back, deal 2 damage." }
+      },
+      "spells": {
+        "Meteor Strike": {
+          "text": "Leap high and smash the ground. Monsters within 2 squares must dodge or take 1 damage.",
+          "limit": "You cannot use it two turns in a row."
+        }
+      },
+      "items": {
+        "Ring of Sisters Lima": {
+          "icon": "💍",
+          "art": "equipment/ring_of_sisters_lima_card.png",
+          "text": "Worn on her hand. It glows when the sisters are together."
+        }
+      }
+    },
+    {
+      "id": "night_armor",
+      "canonName": "Night Armor",
+      "accent": "#3b5bd6",
+      "banner": null,
+      "tagline": "A knight with a magical shield. She is joining the adventure soon!",
+      "abilities": {
+        "Celestial Strike": { "icon": "⚔️", "text": "Strike a monster right next to you." },
+        "Radiant Shield Bash": { "icon": "🛡️", "text": "The next monster beside you attacks with 1 less die. Then hit it with 1 die." },
+        "Defender": { "icon": "🤝", "text": "When a friend next to you is hit, you can take the damage instead." }
+      },
+      "spells": {},
+      "items": {}
+    }
+  ],
+  "excludedHeroes": {
+    "Fire in Disguise": "Guest hero played by Mom. Not one of the sisters. Stays out of the app."
+  },
+  "quests": {
+    "Find mother": {
+      "icon": "🏰",
+      "name": "Seek the Forgotten Strongholds",
+      "text": "Mom said do not follow her. Find the old strongholds of our people instead."
+    },
+    "The Moon-Stone": {
+      "hidden": true,
+      "reason": "Module Resolution has not been played at the table yet."
+    },
+    "The Sealed Path": {
+      "icon": "🗺️",
+      "name": "The Sealed Path",
+      "text": "Silas's old map shows a high mountain pass marked with our crest. The elders say to stay away. Why?"
+    },
+    "First bell repairs": {
+      "icon": "🔨",
+      "name": "First Bell Repairs",
+      "text": "The sheriff needs our help fixing the town when the first bell rings."
+    },
+    "Bree": {
+      "icon": "🦊",
+      "name": "Keep Bree Safe",
+      "text": "Bree is hiding at Moira's. She owes us a favor."
+    }
+  },
+  "pets": {
+    "status": "coming_soon",
+    "text": "Some new friends are waiting to meet you at the next game!"
+  }
+}

@@ -1,7 +1,7 @@
 /* Offline-first service worker for The Hero's Book.
    Bump CACHE_VERSION whenever app files or data change so tablets pick up the update. */
 
-const CACHE_VERSION = 'herosbook-v1';
+const CACHE_VERSION = 'herosbook-v2';
 
 const CORE = [
   './',
@@ -11,6 +11,9 @@ const CORE = [
   'data/player_data.json',
   'manifest.webmanifest',
   'icons/icon.svg',
+  'icons/icon-192.png',
+  'icons/icon-512.png',
+  'icons/icon-512-maskable.png',
   'art/rainbow_with_clouds_crescent_moon_shield.png',
   'art/sky_saver_meteor_strike.png',
   'art/crescent_moon_shield_spell_card.png',
