@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#5b3fbf">
+  <title>The Hero's Book</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+  <header id="topbar">
+    <div id="topbar-title">
+      <span id="topbar-icon">🌙</span>
+      <span id="topbar-text">The Hero's Book</span>
+    </div>
+    <button id="grownup-btn" aria-label="Grown-up corner. Press and hold.">⚙️</button>
+  </header>
+
+  <main id="view" aria-live="polite"></main>
+
+  <nav id="tabbar" hidden>
+    <button class="tab" data-tab="hero"><span class="tab-icon">🦸</span><span class="tab-label">My Hero</span></button>
+    <button class="tab" data-tab="family"><span class="tab-icon">👧</span><span class="tab-label">Family</span></button>
+    <button class="tab" data-tab="pets"><span class="tab-icon">🐾</span><span class="tab-label">Pets</span></button>
+    <button class="tab" data-tab="treasure"><span class="tab-icon">💰</span><span class="tab-label">Treasure</span></button>
+    <button class="tab" data-tab="story"><span class="tab-icon">📖</span><span class="tab-label">Our Story</span></button>
+  </nav>
+
+  <div id="grownup-panel" hidden>
+    <div class="panel-card">
+      <h2>Grown-Up Corner</h2>
+      <button id="ga-reset-health" class="panel-btn">💖 Reset all hearts</button>
+      <button id="ga-switch-hero" class="panel-btn">🦸 Switch hero for this tablet</button>
+      <button id="ga-reload" class="panel-btn">🔄 Check for updates</button>
+      <button id="ga-close" class="panel-btn panel-btn-close">Close</button>
+    </div>
+  </div>
+
+  <div id="art-lightbox" hidden>
+    <img id="art-lightbox-img" alt="Card art, enlarged">
+    <button id="art-lightbox-close" aria-label="Close">✕</button>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

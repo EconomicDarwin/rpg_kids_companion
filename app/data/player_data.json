@@ -1,0 +1,118 @@
+{
+  "schemaVersion": 1,
+  "note": "MOCK DATA for the v0 mockup, hand-written in the exact shape the future export script will emit. Contains only table-revealed content per the secrets rule.",
+  "asOf": "After Session 3: Fire in Rivenshore",
+  "party": {
+    "name": "The Lima Sisters",
+    "gold": null,
+    "goldNote": "We will count our gold at the next game!",
+    "sharedItems": [
+      { "icon": "📔", "name": "The Ancient Field Log", "text": "An old explorer's notebook full of clues." },
+      { "icon": "🔮", "name": "The Wayfinder Prism", "text": "A crystal that turns light into rainbows." },
+      { "icon": "✨", "name": "Pouch of Star-Seeds", "text": "Tiny seeds that glow like stars. 3 uses left." },
+      { "icon": "💌", "name": "Mom's Letter", "text": "Sealed with purple wax. It is from Mom!" },
+      { "icon": "📜", "name": "The Torn Letter", "text": "From Odbert's box. Part of it is missing." },
+      { "icon": "🌈", "name": "The Shield-Boss Stone", "text": "A shimmering stone. It fits the picture on the cavern wall." }
+    ]
+  },
+  "heroes": [
+    {
+      "id": "rainbow_with_clouds",
+      "name": "Rainbow with Clouds",
+      "class": "Healer",
+      "joined": true,
+      "accent": "#8b5cf6",
+      "banner": "art/rainbow_with_clouds_crescent_moon_shield.png",
+      "tagline": "An elf healer. Her staff glows with rainbow light.",
+      "stats": { "melee": 0, "ranged": 0, "magic": 2, "armor": 1 },
+      "abilities": [
+        { "icon": "💥", "name": "Searing Light", "type": "Magic Attack", "text": "Shoot a beam of light at a monster up to 4 squares away." },
+        { "icon": "💖", "name": "Healing Touch", "type": "Special Action", "text": "Remove 1 damage from yourself or a friend next to you." },
+        { "icon": "🧪", "name": "Potion Brewer", "type": "Bonus", "text": "After a battle, refill 1 potion that you or a friend used." }
+      ],
+      "spells": [
+        {
+          "name": "Crescent Moon Shield",
+          "icon": "🌙",
+          "art": "art/crescent_moon_shield_spell_card.png",
+          "text": "You and friends next to you get 1 extra armor die for 2 turns.",
+          "limit": "After you cast it, the moon must rest for 3 turns."
+        }
+      ],
+      "items": [
+        { "icon": "💍", "name": "Ring of Sisters Lima", "art": "art/ring_of_sisters_lima_card.png", "text": "Worn on her hand. It glows when the sisters are together." }
+      ]
+    },
+    {
+      "id": "sky_saver",
+      "name": "Sky-Saver",
+      "class": "Brute",
+      "joined": true,
+      "accent": "#e05a2b",
+      "banner": "art/sky_saver_meteor_strike.png",
+      "tagline": "Strong and brave. She hits hard and protects her sisters.",
+      "stats": { "melee": 3, "ranged": 0, "magic": 0, "armor": 1 },
+      "abilities": [
+        { "icon": "⚔️", "name": "Cloud-Cutter Strike", "type": "Melee Attack", "text": "Swing your blade at a monster right next to you." },
+        { "icon": "💨", "name": "Knockback Attack", "type": "Special Action", "text": "Attack with 1 less die. If you hit, push the monster back 4 squares." },
+        { "icon": "🛡️", "name": "Retaliation", "type": "Bonus", "text": "If a monster hurt you and you hit it back, deal 2 damage." }
+      ],
+      "spells": [
+        {
+          "name": "Meteor Strike",
+          "icon": "☄️",
+          "art": "art/meteor_strike_spell_card.png",
+          "text": "Leap high and smash the ground. Monsters within 2 squares must dodge or take 1 damage.",
+          "limit": "You cannot use it two turns in a row."
+        }
+      ],
+      "items": [
+        { "icon": "💍", "name": "Ring of Sisters Lima", "art": "art/ring_of_sisters_lima_card.png", "text": "Worn on her hand. It glows when the sisters are together." }
+      ]
+    },
+    {
+      "id": "night_armor",
+      "name": "Night Armor",
+      "class": "Knight",
+      "joined": false,
+      "accent": "#3b5bd6",
+      "banner": null,
+      "tagline": "A knight with a magical shield. She is joining the adventure soon!",
+      "stats": { "melee": 1, "ranged": 0, "magic": 0, "armor": 3 },
+      "abilities": [
+        { "icon": "⚔️", "name": "Celestial Strike", "type": "Melee Attack", "text": "Strike a monster right next to you." },
+        { "icon": "🛡️", "name": "Radiant Shield Bash", "type": "Special Action", "text": "The next monster beside you attacks with 1 less die. Then hit it with 1 die." },
+        { "icon": "🤝", "name": "Defender", "type": "Bonus", "text": "When a friend next to you is hit, you can take the damage instead." }
+      ],
+      "spells": [],
+      "items": []
+    }
+  ],
+  "pets": {
+    "status": "coming_soon",
+    "text": "Some new friends are waiting to meet you at the next game!"
+  },
+  "quests": [
+    { "icon": "🏰", "name": "Seek the Forgotten Strongholds", "text": "Mom said do not follow her. Find the old strongholds of our people instead." },
+    { "icon": "🗺️", "name": "The Sealed Path", "text": "Silas's old map shows a high mountain pass marked with our crest. The elders say to stay away. Why?" },
+    { "icon": "🔨", "name": "First Bell Repairs", "text": "The sheriff needs our help fixing the town when the first bell rings." },
+    { "icon": "🦊", "name": "Keep Bree Safe", "text": "Bree is hiding at Moira's. She owes us a favor." }
+  ],
+  "journal": [
+    {
+      "session": 1,
+      "title": "We Are the Lima Sisters",
+      "text": "We helped Odbert and saved Roger. Odbert gave us a secret box from Mom. Inside were magic rings. The rings showed us the truth. We are sisters of the Lima Clan!"
+    },
+    {
+      "session": 2,
+      "title": "Mom's Secret",
+      "text": "Mom is alive and she is very brave. She is leading the Usurper far away from us. The Usurper's sign is a dark eclipse. We saw it on the cavern wall. Our clan's sign is a crescent moon and a sunburst."
+    },
+    {
+      "session": 3,
+      "title": "The Fire in Rivenshore",
+      "text": "Fires broke out in town but we put them out. We kept Bree safe at Moira's sanctuary. Moira gave us our first spell cards. Rainbow got Crescent Moon Shield and Sky-Saver got Meteor Strike!"
+    }
+  ]
+}
