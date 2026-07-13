@@ -7,7 +7,9 @@ way to play the game. Read `README.md` for the full brief; it is accurate and cu
 ## The sibling canon repo (READ-ONLY)
 
 - Campaign canon lives at `C:\Users\micha\Documents\github\rpg_kids`. It is the ONLY source
-  of truth for campaign facts. This app never invents or stores lore.
+  of truth for campaign facts. This app never invents or stores lore. On a machine where
+  the checkout lives elsewhere, pass `--canon-root` to the export script or edit its
+  `DEFAULT_CANON_ROOT`.
 - That folder is Google Drive-synced and its real git dir lives at
   `C:\Users\micha\git-dirs\rpg_kids.git` (the in-folder `.git` is a pointer file).
   **From this repo, only ever read files there. Never run git there, never edit it.**
@@ -33,6 +35,9 @@ way to play the game. Read `README.md` for the full brief; it is accurate and cu
   (see `tools/README.md`). The mock/generated file IS the schema contract with
   `app/js/app.js`. Change shape only with a reason, updating both sides together.
 - **Bump `CACHE_VERSION` in `app/sw.js` on every deploy** so tablets pick up changes.
+- Hosting is live on Cloudflare Pages: every push to `main` deploys `app/`
+  automatically (no build command). Details and troubleshooting: `docs/hosting.md`.
+  A push without a cache bump will look like nothing changed on the tablets.
 
 ## Run and verify locally
 

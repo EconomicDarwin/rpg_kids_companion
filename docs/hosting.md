@@ -4,6 +4,11 @@ How to serve `app/` from a free static host, straight out of the private GitHub 
 
 Primary recommendation: **Cloudflare Pages**. A shorter **Netlify** alternative is at the bottom.
 
+> **Status (2026-07-12): done.** The Cloudflare account exists, the GitHub app is
+> authorized for this repo, and the project deploys automatically on every push to
+> `main`. Section 1 below is kept as a record; day-to-day use is sections 2-4.
+> *(TODO: paste the project's `pages.dev` URL here for easy reference.)*
+
 A note before you start: Cloudflare now steers new projects toward "Workers with static assets" instead of classic Pages. Pages is not deprecated — existing and new Pages projects remain fully supported — but the create screen in the dashboard leads with Workers, so you may have to look for the Pages tab. For a plain static site like this one, Pages is still the simpler choice: no config file, no Worker code, just "here is my folder." If the Pages option ever disappears for new projects, the Workers static-assets path serves the same files and is also free; the key settings (no build, deploy the `app/` directory) carry over.
 
 ## 1. One-time setup on Cloudflare Pages

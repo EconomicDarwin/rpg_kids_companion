@@ -29,9 +29,11 @@ A grown-up corner (press and hold the gear for about a second) resets hearts, sw
 Plain HTML, CSS, and vanilla JS. No framework, no build step, no dependencies. Offline-first PWA via a service worker, so a WiFi hiccup at the table changes nothing. Everything in `app/` is the deployable site.
 
 - `app/index.html`, `app/css/app.css`, `app/js/app.js` — the app
-- `app/data/player_data.json` — the generated player-facing data (v0 ships hand-written mock data in the exact target shape)
-- `app/art/` — renders copied from the canon repo's `05_Asset_Pipeline/Final_Art/`
+- `app/data/player_data.json` — generated player-facing data (see The Export below; do not edit by hand)
+- `app/art/` — renders copied from the canon repo by the export script
+- `app/icons/` — the SVG source plus generated PNGs (192, 512, 512-maskable) for older Silk versions
 - `app/sw.js` — offline cache. **Bump `CACHE_VERSION` on every deploy** so tablets refresh.
+- `tools/` — the export script and its sources (see `tools/README.md`)
 
 ### Run locally
 
@@ -42,13 +44,28 @@ python -m http.server 8080
 
 Then open http://localhost:8080 (a served origin is required, `file://` will not load the JSON).
 
+### Picking up on another machine
+
+1. Clone this repo and the private `rpg_kids` canon repo.
+2. Python 3.8+ is the only requirement. The app and the export use nothing but the
+   standard library: no packages, no npm, nothing to install.
+3. The export script assumes the canon checkout is at
+   `C:\Users\micha\Documents\github\rpg_kids`. If it lives elsewhere, pass
+   `--canon-root <path>` or edit `DEFAULT_CANON_ROOT` at the top of
+   `tools/export_player_data.py`.
+4. Run the local server (above) and `python tools/export_player_data.py --check`
+   to confirm both repos are healthy before doing anything else.
+
 ### Deploy
 
-Target: a free static host (Cloudflare Pages or Netlify) connected to this private repo, with `app/` as the publish directory. Tablets install it from Silk via Add to Home Screen. Not set up yet, see Roadmap.
+Live on Cloudflare Pages, connected to this private repo: no build command, build
+output directory `app/`, and every push to `main` deploys automatically. Setup
+history, tablet install steps, the every-deploy checklist, and troubleshooting are
+in `docs/hosting.md`. Tablets install it from Silk via Add to Home Screen.
 
-## The Export Contract (next up)
+## The Export
 
-`tools/export_player_data.py` (not yet written) will read from the sibling `rpg_kids` checkout and generate `app/data/player_data.json`:
+`tools/export_player_data.py` reads the sibling `rpg_kids` checkout and generates `app/data/player_data.json` plus the art in `app/art/`. Canon supplies the facts, `tools/kid_text.json` is the kid-facing allow-list (rewrites, icons, art picks, hide/exclude decisions), and `tools/journal.md` holds the authored journal entries. The filter is default-closed: anything in canon without an explicit allow-list decision fails the export loudly instead of shipping. The full workflow lives in `tools/README.md`.
 
 | App data | Canon source |
 | :-- | :-- |
@@ -58,10 +75,10 @@ Target: a free static host (Cloudflare Pages or Netlify) connected to this priva
 | Journal entries | `02_Session_Logs/` (kid-readable rewrites) |
 | Art | `05_Asset_Pipeline/Final_Art/` |
 
-Rules for the script: revealed-only content, kid-sized sentences, no em-dashes and no semicolons in any kid-facing text. The `rpg_kids` Phase 5 post-mortem gains a final step: rerun the export, bump the service worker cache version, push.
+Rules for the script (enforced, not aspirational): revealed-only content, kid-sized sentences, no em-dashes and no semicolons in any kid-facing text. The `rpg_kids` post-session wrap gains a final step: rerun the export, bump the service worker cache version, push — the proposal to carry into the canon repo is `docs/canon_repo_proposal.md`.
 
 ## Roadmap
 
-- **v0 (this scaffold):** clickable mockup with mock data for all three heroes, deployable structure, offline-ready. Goal: put it on a Fire tablet and see how it feels in small hands.
-- **v1:** the export script, real journal entries generated per session, hosting hooked up, PNG icons for older Silk versions, read-aloud tested on the actual tablets.
+- **v0 (done):** clickable mockup with mock data for all three heroes, deployable structure, offline-ready.
+- **v1 (current):** export script done and mutation-tested, hosting live on Cloudflare Pages, PNG icons done. Remaining: read-aloud tested on the actual tablets, a fact-check pass on the three ported journal entries against the session logs, and the first real post-session export after Session 04.
 - **v2/v3 ideas:** in-session puzzle and cipher mini-pages the GM can direct the girls to, pet pages once pets are canon, per-hero reading levels that grow with the reader.
