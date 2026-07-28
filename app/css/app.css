@@ -278,6 +278,16 @@ body {
 .journal-title { font-weight: bold; font-size: 1.1rem; flex: 1 1 auto; }
 .journal-text { color: var(--ink-dim); line-height: 1.6; margin-top: 8px; font-size: 1.05rem; }
 
+/* Whole picture, never a crop: these are the storybook illustrations, not thumbnails. */
+.journal-art {
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+  margin-top: 12px;
+  border: 2px solid rgba(255,255,255,0.15);
+  display: block;
+}
+
 /* ---------- Pets ---------- */
 
 .pets-empty { text-align: center; padding: 40px 20px; }

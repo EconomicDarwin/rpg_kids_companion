@@ -326,6 +326,13 @@
       if (sb) head.appendChild(sb);
       card.appendChild(head);
       card.appendChild(el('p', 'journal-text', entry.text));
+      if (entry.art) {
+        const art = el('img', 'journal-art');
+        art.src = entry.art;
+        art.alt = 'A picture from ' + entry.title + '. Tap to see it big.';
+        art.addEventListener('click', function () { lightbox(entry.art, entry.title); });
+        card.appendChild(art);
+      }
       list.appendChild(card);
     });
     view.appendChild(list);

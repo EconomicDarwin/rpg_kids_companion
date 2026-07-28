@@ -69,8 +69,11 @@ Run through this after every between-session update:
 2. **Bump `CACHE_VERSION`** in `app/sw.js`. This is what makes tablets replace their cached copy — a deploy without a bump will look like nothing changed on the tablets. Just increment the number:
 
    ```js
-   const CACHE_VERSION = 'herosbook-v2';  // was v1
+   const CACHE_VERSION = 'herosbook-v3';  // was v2
    ```
+
+   Only the app shell is listed in `sw.js`. Art is read out of `player_data.json`
+   at install time, so adding a picture needs no edit there.
 3. **Commit and push to `main`.**
 4. **Wait for the deploy.** Check **Deployments** in the Cloudflare dashboard, or just reload the `pages.dev` URL on a desktop browser and confirm the change is live.
 5. **Update each tablet.** Open the app, press and hold the gear for about a second to enter the grown-up corner, and use **force an update check**. The new service worker installs the fresh cache and the old one is deleted. If a tablet was offline, it picks the update up the next time it does this while on WiFi.

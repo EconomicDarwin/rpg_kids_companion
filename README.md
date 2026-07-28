@@ -18,9 +18,9 @@ Each tablet remembers its girl's hero and opens straight to it.
 | :-- | :-- |
 | 🦸 My Hero | Banner art, hearts, dice stats, powers, spells, personal items |
 | 👧 Family | Her sisters' heroes and spells (Night Armor shows as joining soon) |
-| 🐾 Pets | Placeholder until the pets are chosen and named at the table |
-| 💰 Treasure | Party gold and shared items, plus her own things |
-| 📖 Our Story | Kid-readable journal of past games and the active quest list |
+| 🐾 Pets | Points at the pet on her hero page. A proper pet page is the next feature |
+| 💰 Treasure | Shared party items plus her own things. Gold is deliberately not tracked, the girls count real coins and gems at the table |
+| 📖 Our Story | Kid-readable journal of past games, one picture each, and the active quest list |
 
 A grown-up corner (press and hold the gear for about a second) resets hearts, switches the tablet's hero, and forces an update check.
 
@@ -30,9 +30,14 @@ Plain HTML, CSS, and vanilla JS. No framework, no build step, no dependencies. O
 
 - `app/index.html`, `app/css/app.css`, `app/js/app.js` — the app
 - `app/data/player_data.json` — generated player-facing data (see The Export below; do not edit by hand)
-- `app/art/` — renders copied from the canon repo by the export script
+- `app/art/` — renders from the canon repo, downscaled by the export script. Canon
+  art is print resolution (7-9 MB each) and the service worker caches every shipped
+  file before offline mode works, so the export refits it to 1600px JPEG. That is
+  roughly 2% of the original bytes and indistinguishable on a Fire screen.
 - `app/icons/` — the SVG source plus generated PNGs (192, 512, 512-maskable) for older Silk versions
-- `app/sw.js` — offline cache. **Bump `CACHE_VERSION` on every deploy** so tablets refresh.
+- `app/sw.js` — offline cache. **Bump `CACHE_VERSION` on every deploy** so tablets
+  refresh. It lists only the app shell: art is read out of `player_data.json` at
+  install time, so adding a picture never means editing this file.
 - `tools/` — the export script and its sources (see `tools/README.md`)
 
 ### Run locally
@@ -47,8 +52,9 @@ Then open http://localhost:8080 (a served origin is required, `file://` will not
 ### Picking up on another machine
 
 1. Clone this repo and the private `rpg_kids` canon repo.
-2. Python 3.8+ is the only requirement. The app and the export use nothing but the
-   standard library: no packages, no npm, nothing to install.
+2. Python 3.8+ and Pillow (`pip install Pillow`) for the export. Pillow is what
+   sizes canon's print-resolution art down for the tablets. The app itself has no
+   dependencies at all and no npm.
 3. The export script assumes the canon checkout is at
    `C:\Users\micha\Documents\github\rpg_kids`. If it lives elsewhere, pass
    `--canon-root <path>` or edit `DEFAULT_CANON_ROOT` at the top of
@@ -80,5 +86,6 @@ Rules for the script (enforced, not aspirational): revealed-only content, kid-si
 ## Roadmap
 
 - **v0 (done):** clickable mockup with mock data for all three heroes, deployable structure, offline-ready.
-- **v1 (current):** export script done and mutation-tested, hosting live on Cloudflare Pages, PNG icons done. Remaining: read-aloud tested on the actual tablets, a fact-check pass on the three ported journal entries against the session logs, and the first real post-session export after Session 04.
-- **v2/v3 ideas:** in-session puzzle and cipher mini-pages the GM can direct the girls to, pet pages once pets are canon, per-hero reading levels that grow with the reader.
+- **v1 (done):** export script mutation-tested, hosting live on Cloudflare Pages, PNG icons. The three ported journal entries were fact-checked against the session logs and rewritten (entries 1 and 2 had swapped content, and the check turned up a real canon error about Roger).
+- **v2 (current):** art is downscaled at export time, so pictures are cheap enough to use freely. Every journal entry carries one. Sessions 04 and 05 exported. Remaining: read-aloud tested on the actual tablets, and a real Pets page now that both pets are named in canon.
+- **v3 ideas:** in-session puzzle and cipher mini-pages the GM can direct the girls to, per-hero reading levels that grow with the reader.

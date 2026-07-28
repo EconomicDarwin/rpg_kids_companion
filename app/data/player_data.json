@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
   "note": "GENERATED FILE. Run tools/export_player_data.py to regenerate. Do not edit by hand.",
-  "asOf": "After Session 3: The Fire in Rivenshore",
+  "asOf": "After Session 5: The Knights Who Waited",
   "party": {
     "name": "The Lima Sisters",
     "gold": null,
-    "goldNote": "We will count our gold at the next game!",
+    "goldNote": "Your gold and gems are real! Count them in your own pouch.",
     "sharedItems": [
       {
         "icon": "📔",
@@ -36,6 +36,11 @@
         "icon": "🌈",
         "name": "The Shield-Boss Stone",
         "text": "A shimmering stone. It fits the picture on the cavern wall."
+      },
+      {
+        "icon": "📿",
+        "name": "The Silver Brooch",
+        "text": "We found it in the old ruins under the town. Nobody knows what it is for yet."
       }
     ]
   },
@@ -46,7 +51,7 @@
       "class": "Healer",
       "joined": true,
       "accent": "#8b5cf6",
-      "banner": "art/rainbow_with_clouds_crescent_moon_shield.png",
+      "banner": "art/rainbow_with_clouds_crescent_moon_shield.jpg",
       "tagline": "An elf healer. Her staff glows with rainbow light.",
       "stats": {
         "melee": 0,
@@ -78,7 +83,7 @@
         {
           "name": "Crescent Moon Shield",
           "icon": "🌙",
-          "art": "art/crescent_moon_shield_spell_card.png",
+          "art": "art/crescent_moon_shield_spell_card.jpg",
           "text": "You and friends next to you get 1 extra armor die for 2 turns.",
           "limit": "After you cast it, the moon must rest for 3 turns."
         }
@@ -87,8 +92,14 @@
         {
           "icon": "💍",
           "name": "Ring of Sisters Lima",
-          "art": "art/ring_of_sisters_lima_card.png",
+          "art": "art/ring_of_sisters_lima_card_art.jpg",
           "text": "Worn on her hand. It glows when the sisters are together."
+        },
+        {
+          "icon": "🧚",
+          "name": "Rainbow Fairy",
+          "art": "art/hearth_fairy.jpg",
+          "text": "A hearth fairy who chose you. She throws sparkly dust in a monster's eyes. Then it attacks with 1 less die."
         }
       ]
     },
@@ -98,7 +109,7 @@
       "class": "Brute",
       "joined": true,
       "accent": "#e05a2b",
-      "banner": "art/sky_saver_meteor_strike.png",
+      "banner": "art/sky_saver_meteor_strike.jpg",
       "tagline": "Strong and brave. She hits hard and protects her sisters.",
       "stats": {
         "melee": 3,
@@ -130,7 +141,7 @@
         {
           "name": "Meteor Strike",
           "icon": "☄️",
-          "art": "art/meteor_strike_spell_card.png",
+          "art": "art/meteor_strike_spell_card.jpg",
           "text": "Leap high and smash the ground. Monsters within 2 squares must dodge or take 1 damage.",
           "limit": "You cannot use it two turns in a row."
         }
@@ -139,8 +150,19 @@
         {
           "icon": "💍",
           "name": "Ring of Sisters Lima",
-          "art": "art/ring_of_sisters_lima_card.png",
+          "art": "art/ring_of_sisters_lima_card_art.jpg",
           "text": "Worn on her hand. It glows when the sisters are together."
+        },
+        {
+          "icon": "☀️",
+          "name": "The Sun-Jewel",
+          "text": "A golden gem you found at the bottom of a pool. It drinks up daylight and shines in the dark. It is the key that opened the old door."
+        },
+        {
+          "icon": "🐱",
+          "name": "Starry",
+          "art": "art/star_kitten.jpg",
+          "text": "A kitten with stars in her fur. Her stars light up when something is hidden nearby. Then you get 1 extra die to look for it."
         }
       ]
     },
@@ -183,8 +205,8 @@
     }
   ],
   "pets": {
-    "status": "coming_soon",
-    "text": "Some new friends are waiting to meet you at the next game!"
+    "status": "with_heroes",
+    "text": "Your pet found you! Look for your friend under My Things on your hero page."
   },
   "quests": [
     {
@@ -193,14 +215,19 @@
       "text": "Mom said do not follow her. Find the old strongholds of our people instead."
     },
     {
+      "icon": "🌙",
+      "name": "Find the Moon-Stone",
+      "text": "Moira told us about the Moon-Stone. It is the lost heart of the old kingdom and it is hidden under our town. We opened the sealed door with the sun-jewel and climbed down. Now we hunt for it in the old ruins."
+    },
+    {
       "icon": "🗺️",
       "name": "The Sealed Path",
       "text": "Silas's old map shows a high mountain pass marked with our crest. The elders say to stay away. Why?"
     },
     {
-      "icon": "🔨",
-      "name": "First Bell Repairs",
-      "text": "The sheriff needs our help fixing the town when the first bell rings."
+      "icon": "🤝",
+      "name": "Tell Bree the Good News",
+      "text": "We forgave Ameelea for being a bully. Now we have to tell Bree that she is invited to Ameelea's fort."
     },
     {
       "icon": "🦊",
@@ -212,17 +239,32 @@
     {
       "session": 1,
       "title": "We Are the Lima Sisters",
-      "text": "We helped Odbert and saved Roger. Odbert gave us a secret box from Mom. Inside were magic rings. The rings showed us the truth. We are sisters of the Lima Clan!"
+      "text": "We cleared the rats out of Odbert's basement, saved Roger, and followed the tunnels down into a huge cave. A treasure chest there held two magic rings. We put them on and they glowed. We are sisters of the Lima Clan! Deeper in we found a letter from Mom. She is alive and she is leading a bad man far away to keep us safe. A shiny stone lit up the wall and showed our family long ago, with a dark shadow watching them. Its name is the Eclipse.",
+      "art": "art/whispering_caverns_usurper_mural.jpg"
     },
     {
       "session": 2,
-      "title": "Mom's Secret",
-      "text": "Mom is alive and she is very brave. She is leading the Usurper far away from us. The Usurper's sign is a dark eclipse. We saw it on the cavern wall. Our clan's sign is a crescent moon and a sunburst."
+      "title": "Odbert's Secret Box",
+      "text": "We looked around town and stopped at Odbert's shop. His old money box had our clan sign painted on the lid. It had a secret bottom! Inside was an old book about shadow monsters and a torn letter from Mom. Odbert said Mom left the box with him a long time ago to keep it safe.",
+      "art": "art/odberts_box_contents.jpg"
     },
     {
       "session": 3,
       "title": "The Fire in Rivenshore",
-      "text": "Fires broke out in town but we put them out. We kept Bree safe at Moira's sanctuary. Moira gave us our first spell cards. Rainbow got Crescent Moon Shield and Sky-Saver got Meteor Strike!"
+      "text": "Fires broke out all over town but we put them out. We saved Roger again, this time from under a falling light. Poor Roger! We kept Bree safe at Moira's sanctuary. Moira gave us our first spell cards. Rainbow got Crescent Moon Shield and Sky-Saver got Meteor Strike!",
+      "art": "art/moiras_sanctuary.jpg"
+    },
+    {
+      "session": 4,
+      "title": "The Door Under the Town",
+      "text": "We practiced our new spells and helped fix up the whole town. The sheriff paid us in gold and shiny gems. Then Rainbow Fairy chose Rainbow and Starry the star-kitten chose Sky-Saver. At tea Moira showed us a torn paper about the Moon-Stone. Our prism made secret words appear on it. Pippa at the Archives let us go down to the old vault. Sky-Saver put her sun-jewel in the door and it opened one inch. Cold air came out and we could hear music far below!",
+      "art": "art/vault_door_waking.jpg"
+    },
+    {
+      "session": 5,
+      "title": "The Knights Who Waited",
+      "text": "We went down the mossy stairs into old ruins under the town. We found a shiny silver brooch tucked in a wall. Then we came to a huge hall with our family crest on it. Three knight ladies were still guarding it after all this time. Two of them saw our rings and knelt right down. The third one had dark magic on her, so we had to fight. Our very last hit knocked the dark magic out of her and healed her! Her name is Perriglossa and now she comes with us.",
+      "art": "art/hollow_watch_kneels.jpg"
     }
   ]
 }

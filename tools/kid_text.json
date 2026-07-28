@@ -2,14 +2,16 @@
   "_comment": "The kid-facing allow-list for tools/export_player_data.py. Canon (rpg_kids) says WHAT exists. This file says what ships to the tablets and how it reads for a 5 and a 7 year old. Keys must match canon names exactly (trailing parentheticals stripped). Anything in canon with no entry here fails the export on purpose. That is the secrets filter.",
   "party": {
     "name": "The Lima Sisters",
-    "goldUnknownNote": "We will count our gold at the next game!",
+    "goldTracking": false,
+    "goldUnknownNote": "Your gold and gems are real! Count them in your own pouch.",
     "sharedItems": {
       "The Ancient Field Log": { "icon": "📔", "text": "An old explorer's notebook full of clues." },
       "The Wayfinder Prism": { "icon": "🔮", "text": "A crystal that turns light into rainbows." },
       "Pouch of Star-Seeds": { "icon": "✨", "text": "Tiny seeds that glow like stars. 3 uses left." },
       "Mom's letter": { "icon": "💌", "name": "Mom's Letter", "text": "Sealed with purple wax. It is from Mom!" },
       "Torn letter from Odbert's box": { "icon": "📜", "name": "The Torn Letter", "text": "From Odbert's box. Part of it is missing." },
-      "Iridescent shield-boss stone": { "icon": "🌈", "name": "The Shield-Boss Stone", "text": "A shimmering stone. It fits the picture on the cavern wall." }
+      "Iridescent shield-boss stone": { "icon": "🌈", "name": "The Shield-Boss Stone", "text": "A shimmering stone. It fits the picture on the cavern wall." },
+      "Silver brooch": { "icon": "📿", "name": "The Silver Brooch", "text": "We found it in the old ruins under the town. Nobody knows what it is for yet." }
     }
   },
   "heroes": [
@@ -33,8 +35,14 @@
       "items": {
         "Ring of Sisters Lima": {
           "icon": "💍",
-          "art": "equipment/ring_of_sisters_lima_card.png",
+          "art": "equipment/ring_of_sisters_lima_card_art.png",
           "text": "Worn on her hand. It glows when the sisters are together."
+        },
+        "pet: Rainbow Fairy": {
+          "icon": "🧚",
+          "name": "Rainbow Fairy",
+          "art": "pets/hearth_fairy.png",
+          "text": "A hearth fairy who chose you. She throws sparkly dust in a monster's eyes. Then it attacks with 1 less die."
         }
       }
     },
@@ -58,8 +66,19 @@
       "items": {
         "Ring of Sisters Lima": {
           "icon": "💍",
-          "art": "equipment/ring_of_sisters_lima_card.png",
+          "art": "equipment/ring_of_sisters_lima_card_art.png",
           "text": "Worn on her hand. It glows when the sisters are together."
+        },
+        "the Sun-Jewel": {
+          "icon": "☀️",
+          "name": "The Sun-Jewel",
+          "text": "A golden gem you found at the bottom of a pool. It drinks up daylight and shines in the dark. It is the key that opened the old door."
+        },
+        "pet: Constellation Kitten (\"Starry\"), the star-kitten": {
+          "icon": "🐱",
+          "name": "Starry",
+          "art": "pets/star_kitten.png",
+          "text": "A kitten with stars in her fur. Her stars light up when something is hidden nearby. Then you get 1 extra die to look for it."
         }
       }
     },
@@ -88,18 +107,19 @@
       "text": "Mom said do not follow her. Find the old strongholds of our people instead."
     },
     "The Moon-Stone": {
-      "hidden": true,
-      "reason": "Module Resolution has not been played at the table yet."
+      "icon": "🌙",
+      "name": "Find the Moon-Stone",
+      "text": "Moira told us about the Moon-Stone. It is the lost heart of the old kingdom and it is hidden under our town. We opened the sealed door with the sun-jewel and climbed down. Now we hunt for it in the old ruins."
     },
     "The Sealed Path": {
       "icon": "🗺️",
       "name": "The Sealed Path",
       "text": "Silas's old map shows a high mountain pass marked with our crest. The elders say to stay away. Why?"
     },
-    "First bell repairs": {
-      "icon": "🔨",
-      "name": "First Bell Repairs",
-      "text": "The sheriff needs our help fixing the town when the first bell rings."
+    "Ameelea & Bree": {
+      "icon": "🤝",
+      "name": "Tell Bree the Good News",
+      "text": "We forgave Ameelea for being a bully. Now we have to tell Bree that she is invited to Ameelea's fort."
     },
     "Bree": {
       "icon": "🦊",
@@ -108,7 +128,7 @@
     }
   },
   "pets": {
-    "status": "coming_soon",
-    "text": "Some new friends are waiting to meet you at the next game!"
+    "status": "with_heroes",
+    "text": "Your pet found you! Look for your friend under My Things on your hero page."
   }
 }

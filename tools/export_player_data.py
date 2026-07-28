@@ -23,12 +23,16 @@ Usage:
 from __future__ import annotations
 
 import argparse
-import filecmp
+import io
 import json
 import re
-import shutil
 import sys
 from pathlib import Path
+
+try:
+    from PIL import Image
+except ImportError:
+    Image = None
 
 DEFAULT_CANON_ROOT = Path(r"C:\Users\micha\Documents\github\rpg_kids")
 
@@ -49,6 +53,14 @@ GENERATED_NOTE = (
 # no em-dashes, no semicolons; ❓ means unexported GM TODO leaked through).
 BANNED_CHARS = {"—": "em-dash", "–": "en-dash", ";": "semicolon", "❓": "GM TODO marker"}
 
+# Canon art is print resolution: mostly 2816x1536 PNGs at 7-9 MB each, with an
+# unused alpha channel. A Fire tablet cannot display that, and sw.js caches every
+# shipped file before offline mode works, so art is downscaled and recompressed on
+# the way into app/art/. 1600px keeps the full-screen lightbox crisp on the highest
+# resolution Fire while costing roughly 2% of the original bytes.
+ART_MAX_EDGE = 1600
+ART_JPEG_QUALITY = 82
+
 
 class Exporter:
     def __init__(self, canon_root: Path):
@@ -56,6 +68,7 @@ class Exporter:
         self.errors: list[str] = []
         self.warnings: list[str] = []
         self.excluded: list[str] = []  # secrets-filter decisions, reported on success
+        self._alpha_cache: dict[Path, bool] = {}
 
     def err(self, msg: str) -> None:
         self.errors.append(msg)
@@ -111,6 +124,41 @@ class Exporter:
         for ch, name in BANNED_CHARS.items():
             if ch in text:
                 self.err(f"Kid-style violation ({name}) in {where}: {text!r}")
+
+    # ---------- art sizing ----------
+
+    def art_uses_alpha(self, src: Path) -> bool:
+        """True only if the alpha channel is actually doing something. Canon art is
+        painted and fully opaque, but it is saved RGBA, so this checks the pixels
+        rather than the mode."""
+        if src not in self._alpha_cache:
+            with Image.open(src) as im:
+                transparent_palette = im.mode == "P" and "transparency" in im.info
+                if im.mode in ("RGBA", "LA") or transparent_palette:
+                    self._alpha_cache[src] = im.convert("RGBA").getchannel("A").getextrema()[0] < 255
+                else:
+                    self._alpha_cache[src] = False
+        return self._alpha_cache[src]
+
+    def web_art_name(self, src: Path) -> str:
+        """The shipped filename. Opaque art becomes .jpg, which is where nearly all
+        of the saving is. Art that genuinely needs transparency stays .png."""
+        return src.stem + (".png" if self.art_uses_alpha(src) else ".jpg")
+
+    def render_art(self, src: Path) -> bytes:
+        """Downscale to fit ART_MAX_EDGE and re-encode for the tablets. Deterministic
+        for a given source, which is what lets sync_art compare bytes instead of
+        keeping a manifest of what it generated last time."""
+        buf = io.BytesIO()
+        with Image.open(src) as im:
+            im.thumbnail((ART_MAX_EDGE, ART_MAX_EDGE), Image.LANCZOS)
+            if self.art_uses_alpha(src):
+                im.convert("RGBA").save(buf, "PNG", optimize=True)
+            else:
+                im.convert("RGB").save(
+                    buf, "JPEG", quality=ART_JPEG_QUALITY, optimize=True, progressive=True
+                )
+        return buf.getvalue()
 
     # ---------- canon parsing ----------
 
@@ -198,11 +246,11 @@ class Exporter:
                 self.err("house_rules.md: 'Unlocked Lima Spells' section has no parseable spell blocks")
         return heroes, spells
 
-    def parse_current_state(self):
+    def parse_current_state(self, track_gold: bool):
         """Returns (gold, inventory, quests).
         gold: int | None ("unknown, count at table") — parse failure is an error.
         inventory: {owner: [item strings]} with owner 'Party (shared)' for the party row.
-        quests: [(name, raw_line)] in canon order.
+        quests: [(name, raw_line)] in canon order, completed ones dropped.
         """
         md = self.read_canon("01_Campaign_Bible/current_state.md")
         if md is None:
@@ -212,7 +260,7 @@ class Exporter:
         res = self.section(md, 2, "Party Resources")
         if res is None:
             self.err("current_state.md: section 'Party Resources' not found")
-        else:
+        elif track_gold:
             gold_cell = None
             for cells in self.table_rows(res):
                 if len(cells) >= 2 and self.strip_md(cells[0]).lower() == "gold":
@@ -252,11 +300,14 @@ class Exporter:
                 line = line.strip()
                 if not line.startswith("- "):
                     continue
-                m = re.match(r"^- \*\*(.+?)\*\*", line)
-                if m:
-                    quests.append((m.group(1), line))
-                else:
+                # Canon strikes a finished quest through: '- ~~**Name**~~ — *done: ...*'
+                m = re.match(r"^- (~~)?\*\*(.+?)\*\*", line)
+                if not m:
                     self.err(f"current_state.md quests: bullet without a bold quest name: {line!r}")
+                elif m.group(1):
+                    self.excluded.append(f"quest {m.group(2)!r}: finished at the table, no longer active")
+                else:
+                    quests.append((m.group(2), line))
             if not quests:
                 self.err("current_state.md: 'Active Quests' section has no quest bullets")
         return gold, inventory, quests
@@ -283,7 +334,12 @@ class Exporter:
         return logs
 
     def parse_journal(self) -> dict[int, dict]:
-        """Returns {session number: {title, text}} from tools/journal.md."""
+        """Returns {session number: {title, text, art}} from tools/journal.md.
+
+        An entry may carry one 'Art: <path under Final_Art>' line. The picture is a
+        deliberate allow-list decision like every other shipped thing: canon art can
+        contain unrevealed detail (Odbert's box art spells out the Moon-Stone), so
+        someone has to look at the image before naming it here."""
         if not JOURNAL_PATH.is_file():
             self.err(f"Journal source missing: {JOURNAL_PATH}")
             return {}
@@ -293,18 +349,30 @@ class Exporter:
         # parts = [preamble, num, title, body, num, title, body, ...]
         for i in range(1, len(parts), 3):
             n, title, body = int(parts[i]), parts[i + 1].strip(), parts[i + 2]
-            text = " ".join(l.strip() for l in body.splitlines() if l.strip())
+            art = None
+            sentences_text = []
+            for line in (l.strip() for l in body.splitlines()):
+                if not line:
+                    continue
+                m = re.fullmatch(r"Art:\s*(\S+)", line)
+                if not m:
+                    sentences_text.append(line)
+                elif art is not None:
+                    self.err(f"journal.md: session {n} lists more than one Art line (one picture per entry)")
+                else:
+                    art = m.group(1)
+            text = " ".join(sentences_text)
             if n in entries:
                 self.err(f"journal.md: duplicate entry for session {n}")
             if not text:
                 self.err(f"journal.md: session {n} has an empty entry")
                 continue
-            entries[n] = {"title": title, "text": text}
+            entries[n] = {"title": title, "text": text, "art": art}
             sentences = len(re.findall(r"[.!?]", text))
-            if not 2 <= sentences <= 5:
+            if not 2 <= sentences <= 8:
                 self.warn(
                     f"journal.md session {n}: {sentences} sentences "
-                    f"(aim for 2-4 short kid-sized sentences)"
+                    f"(aim for short kid-sized sentences, roughly 2 to 8)"
                 )
         return entries
 
@@ -313,17 +381,21 @@ class Exporter:
     def build(self, overlay: dict) -> tuple[dict | None, dict[str, Path]]:
         """Returns (player_data, art_jobs). art_jobs: {dest basename: source abs path}."""
         canon_heroes, canon_spells = self.parse_house_rules()
-        gold, inventory, canon_quests = self.parse_current_state()
+        # The girls handle real coins and gems at the table, so the app deliberately
+        # does not mirror a gold number. Setting this true makes the export read and
+        # ship canon's gold again, and it starts failing if canon has no Gold row.
+        track_gold = overlay["party"].get("goldTracking", True)
+        gold, inventory, canon_quests = self.parse_current_state(track_gold)
         logs = self.parse_session_logs()
         journal = self.parse_journal()
         art_jobs: dict[str, Path] = {}
 
         def add_art(rel_to_final_art: str, where: str) -> str | None:
             src = self.canon / FINAL_ART_REL / rel_to_final_art
-            dest = Path(rel_to_final_art).name
             if not src.is_file():
                 self.err(f"Art file missing in canon for {where}: {src}")
                 return None
+            dest = self.web_art_name(src)
             if dest in art_jobs and art_jobs[dest] != src:
                 self.err(f"Art name collision: {dest} wanted from both {art_jobs[dest]} and {src}")
                 return None
@@ -536,7 +608,10 @@ class Exporter:
             e = journal[n]
             self.lint_kid(e["text"], f"journal session {n} text")
             self.lint_kid(e["title"], f"journal session {n} title")
-            journal_out.append({"session": n, "title": e["title"], "text": e["text"]})
+            entry = {"session": n, "title": e["title"], "text": e["text"], "art": None}
+            if e["art"]:
+                entry["art"] = add_art(e["art"], f"journal session {n}")
+            journal_out.append(entry)
         for n in journal:
             if n not in logs:
                 self.err(f"journal.md has an entry for session {n} but canon has no such session log")
@@ -581,13 +656,17 @@ class Exporter:
         ART_DIR.mkdir(parents=True, exist_ok=True)
         for dest_name, src in sorted(art_jobs.items()):
             dest = ART_DIR / dest_name
-            if dest.is_file() and filecmp.cmp(src, dest, shallow=False):
-                actions.append(f"  = {dest_name} (up to date)")
+            payload = self.render_art(src)
+            current = dest.read_bytes() if dest.is_file() else None
+            sizes = f"{src.stat().st_size // 1024} KB canon -> {len(payload) // 1024} KB"
+            if current == payload:
+                actions.append(f"  = {dest_name} (up to date, {len(payload) // 1024} KB)")
             elif check_only:
-                actions.append(f"  ! {dest_name} would be {'updated' if dest.is_file() else 'copied'} from {src}")
+                verb = "updated" if current is not None else "created"
+                actions.append(f"  ! {dest_name} would be {verb} from {src.name} ({sizes})")
             else:
-                shutil.copy2(src, dest)
-                actions.append(f"  + {dest_name} copied from {src}")
+                dest.write_bytes(payload)
+                actions.append(f"  + {dest_name} from {src.name} ({sizes})")
         orphans = [p for p in sorted(ART_DIR.iterdir()) if p.is_file() and p.name not in art_jobs]
         for p in orphans:
             if prune and not check_only:
@@ -617,6 +696,14 @@ def main() -> int:
 
     if not args.canon_root.is_dir():
         print(f"EXPORT FAILED: canon root not found: {args.canon_root}", file=sys.stderr)
+        return 2
+
+    if Image is None:
+        print(
+            "EXPORT FAILED: Pillow is needed to size canon art for the tablets.\n"
+            "  pip install Pillow",
+            file=sys.stderr,
+        )
         return 2
 
     overlay = json.loads(KID_TEXT_PATH.read_text(encoding="utf-8"))
