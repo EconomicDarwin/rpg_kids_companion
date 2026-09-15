@@ -17,7 +17,7 @@ Each tablet remembers its girl's hero and opens straight to it.
 | Tab | Contents |
 | :-- | :-- |
 | 🦸 My Hero | Banner art, hearts, dice stats, powers, spells, personal items |
-| 👧 Family | Her sisters' heroes and spells (Night Armor shows as joining soon) |
+| 👧 Family | Her sister's hero and spells. Only heroes the girls know about appear, so the roster can be shorter than canon's |
 | 🐾 Pets | Points at the pet on her hero page. A proper pet page is the next feature |
 | 💰 Treasure | Shared party items plus her own things. Gold is deliberately not tracked, the girls count real coins and gems at the table |
 | 📖 Our Story | Kid-readable journal of past games, one picture each, and the active quest list |

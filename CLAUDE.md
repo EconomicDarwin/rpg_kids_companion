@@ -51,7 +51,7 @@ python -m http.server 8080
 ```
 
 Open http://localhost:8080. A served origin is required (`file://` will not load the JSON
-or register the service worker). Verify: all three hero tabs render, Treasure shows party
+or register the service worker). Verify: every hero tab renders, Treasure shows party
 items, Our Story lists one journal entry per played session, Our World lists the people
 the girls have met. Headless Chrome works for a
 smoke check.

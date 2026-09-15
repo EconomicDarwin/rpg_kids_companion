@@ -185,43 +185,6 @@
           "text": "A kitten with stars in her fur. Her stars light up when something is hidden nearby. Then you get 1 extra die to look for it."
         }
       ]
-    },
-    {
-      "id": "night_armor",
-      "name": "Night Armor",
-      "class": "Knight",
-      "joined": false,
-      "accent": "#3b5bd6",
-      "banner": null,
-      "tagline": "A knight with a magical shield. She is joining the adventure soon!",
-      "stats": {
-        "melee": 1,
-        "ranged": 0,
-        "magic": 0,
-        "armor": 3
-      },
-      "abilities": [
-        {
-          "icon": "⚔️",
-          "name": "Celestial Strike",
-          "type": "Melee Attack",
-          "text": "Strike a monster right next to you."
-        },
-        {
-          "icon": "🛡️",
-          "name": "Radiant Shield Bash",
-          "type": "Special Action",
-          "text": "The next monster beside you attacks with 1 less die. Then hit it with 1 die."
-        },
-        {
-          "icon": "🤝",
-          "name": "Defender",
-          "type": "Bonus",
-          "text": "When a friend next to you is hit, you can take the damage instead."
-        }
-      ],
-      "spells": [],
-      "items": []
     }
   ],
   "pets": {

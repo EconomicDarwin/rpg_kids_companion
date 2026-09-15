@@ -93,24 +93,11 @@
           "text": "A kitten with stars in her fur. Her stars light up when something is hidden nearby. Then you get 1 extra die to look for it."
         }
       }
-    },
-    {
-      "id": "night_armor",
-      "canonName": "Night Armor",
-      "accent": "#3b5bd6",
-      "banner": null,
-      "tagline": "A knight with a magical shield. She is joining the adventure soon!",
-      "abilities": {
-        "Celestial Strike": { "icon": "⚔️", "text": "Strike a monster right next to you." },
-        "Radiant Shield Bash": { "icon": "🛡️", "text": "The next monster beside you attacks with 1 less die. Then hit it with 1 die." },
-        "Defender": { "icon": "🤝", "text": "When a friend next to you is hit, you can take the damage instead." }
-      },
-      "spells": {},
-      "items": {}
     }
   ],
   "excludedHeroes": {
-    "Fire in Disguise": "Guest hero played by Mom. Not one of the sisters. Stays out of the app."
+    "Fire in Disguise": "Guest hero played by Mom. Not one of the sisters. Stays out of the app.",
+    "Night Armor": "Removed 2026-09-15 per the GM: the girls do not know about her yet. She is an unintroduced NPC, not a sister, even though master_lore.md and house_rules.md still list her as a hero. Put her back only when she appears at the table."
   },
   "quests": {
     "The waking queen": {
