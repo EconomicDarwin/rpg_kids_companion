@@ -74,3 +74,13 @@ Star-Seed briars. A music box had played for us the whole way down, and when we
 picked it up it finally stopped. It was waiting for its owners to come home! Then
 we lifted the Moon-Stone together, four hands at once. A stone queen on the wall
 opened her eyes!
+
+## Session 6 — Queen Stars
+
+Art: scenes/sisters_meet_the_queen.png
+
+The stone queen was awake, and she could talk! We gave her a name. She is Queen
+Stars. Then we asked her question after question. What was her life like? Why did
+she turn to stone? Does she know our mom? Why is Sky-Saver's sword made of clouds?
+She looked at Rainbow's staff and said it reminded her of the magic tools of long
+ago. For everything else she said, "Later." We cannot wait for later!

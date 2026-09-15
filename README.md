@@ -21,6 +21,7 @@ Each tablet remembers its girl's hero and opens straight to it.
 | 🐾 Pets | Points at the pet on her hero page. A proper pet page is the next feature |
 | 💰 Treasure | Shared party items plus her own things. Gold is deliberately not tracked, the girls count real coins and gems at the table |
 | 📖 Our Story | Kid-readable journal of past games, one picture each, and the active quest list |
+| 🌍 Our World | People We Met, grouped by where we met them, with a portrait or an icon each. Places and secrets come next |
 
 A grown-up corner (press and hold the gear for about a second) resets hearts, switches the tablet's hero, and forces an update check.
 
@@ -89,5 +90,5 @@ Rules for the script (enforced, not aspirational): revealed-only content, kid-si
 - **v1 (done):** export script mutation-tested, hosting live on Cloudflare Pages, PNG icons. The three ported journal entries were fact-checked against the session logs and rewritten (entries 1 and 2 had swapped content, and the check turned up a real canon error about Roger).
 - **v2 (current):** art is downscaled at export time, so pictures are cheap enough to use freely. Every journal entry carries one. Sessions 04 and 05 exported. Remaining: read-aloud tested on the actual tablets, and a real Pets page now that both pets are named in canon.
 - **Laptops (2026-09-15):** the girls have laptops too. Same app, same URL, installable from Edge or Chrome. On screens 900px and wider the tab bar becomes a rail down the left, cards flow into two columns, and each story sits beside its picture. One media query at the bottom of `app/css/app.css` does it, so tablets are unchanged.
-- **Next: "What We Know."** A lore area for the laptops, modeled on the GM's Cast screen: People We Met, Places We Went, Secrets We Found. Each becomes a new default-closed allow-list in the export, fed by `current_state.md`'s NPC Relationships and "What the Heroes Know" sections.
+- **Our World (started 2026-09-15).** A lore tab modeled on the GM's Cast screen. **People We Met** is built: one card per bullet in `current_state.md`'s NPC Relationships, default-closed, with a portrait or an icon. **Places We Went** and **Secrets We Found** come next, fed by the "What the Heroes Know" section.
 - **v3 ideas:** in-session puzzle and cipher mini-pages the GM can direct the girls to, per-hero reading levels that grow with the reader.

@@ -343,6 +343,48 @@
     view.appendChild(quests);
   }
 
+  function personCard(p) {
+    const card = el('div', 'kcard person-card');
+    if (p.art) {
+      const img = el('img', 'person-portrait');
+      img.src = p.art;
+      img.alt = 'A picture of ' + p.name + '. Tap to see it big.';
+      img.addEventListener('click', function () { lightbox(p.art, p.name); });
+      card.appendChild(img);
+    } else {
+      card.appendChild(el('span', 'person-icon', p.icon));
+    }
+    const body = el('div');
+    body.style.flex = '1';
+    body.appendChild(el('div', 'kcard-name', p.name));
+    body.appendChild(el('div', 'kcard-text', p.text));
+    card.appendChild(body);
+    const sb = speakButton(p.name + '. ' + p.text);
+    if (sb) card.appendChild(sb);
+    return card;
+  }
+
+  function renderWorldScreen() {
+    view.innerHTML = '';
+    const title = el('h1', 'screen-title');
+    title.appendChild(el('span', '', '🌍'));
+    title.appendChild(el('span', '', 'Our World'));
+    view.appendChild(title);
+
+    view.appendChild(sectionHeader('🧑‍🤝‍🧑', 'People We Met'));
+    const people = DATA.people || [];
+    // Group by where we met them, in the order canon lists them.
+    const places = [];
+    people.forEach(function (p) { if (places.indexOf(p.place) === -1) places.push(p.place); });
+    places.forEach(function (place) {
+      view.appendChild(el('h3', 'place-h', place));
+      const list = el('div', 'card-list');
+      people.filter(function (p) { return p.place === place; })
+        .forEach(function (p) { list.appendChild(personCard(p)); });
+      view.appendChild(list);
+    });
+  }
+
   // ---------- Navigation ----------
 
   const SCREENS = {
@@ -350,7 +392,8 @@
     family: renderFamilyScreen,
     pets: renderPetsScreen,
     treasure: renderTreasureScreen,
-    story: renderStoryScreen
+    story: renderStoryScreen,
+    world: renderWorldScreen
   };
 
   function renderApp() {

@@ -388,6 +388,44 @@ body {
 
 [hidden] { display: none !important; }
 
+/* ---------- Our World (People We Met) ---------- */
+
+.place-h {
+  color: var(--ink-dim);
+  font-size: 0.95rem;
+  margin: 16px 4px 8px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.person-card { align-items: center; }
+
+.person-portrait, .person-icon {
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  flex: 0 0 auto;
+}
+
+.person-portrait {
+  object-fit: cover;
+  object-position: center top;
+  border: 3px solid var(--accent-c, var(--accent));
+}
+
+.person-icon {
+  background: var(--bg-card-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.6rem;
+}
+
+@media (hover: hover) {
+  .person-portrait { cursor: zoom-in; }
+  .person-portrait:hover { border-color: var(--gold); }
+}
+
 /* ---------- Laptops (and big tablets turned sideways) ----------
    Same app, wider screen. The tab bar becomes a rail down the left side, content
    sits at a readable width, cards flow into two columns, and each story puts its

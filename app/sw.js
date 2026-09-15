@@ -1,7 +1,7 @@
 /* Offline-first service worker for The Hero's Book.
    Bump CACHE_VERSION whenever app files or data change so tablets pick up the update. */
 
-const CACHE_VERSION = 'herosbook-v4';
+const CACHE_VERSION = 'herosbook-v5';
 
 /* The app shell. Art is deliberately NOT listed here: it is read out of
    player_data.json at install time, so adding a picture to the journal or to a hero
@@ -28,6 +28,7 @@ function artUrls(data) {
     (h.items || []).forEach(function (i) { push(i.art); });
   });
   (data.journal || []).forEach(function (e) { push(e.art); });
+  (data.people || []).forEach(function (p) { push(p.art); });
   return urls;
 }
 

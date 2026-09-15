@@ -144,6 +144,78 @@
       "text": "Bree is hiding at Moira's. She owes us a favor."
     }
   },
+  "_peopleComment": "One entry per bullet in canon current_state.md 'NPC Relationships', keyed by the bullet's first bold name. The value is one card, a list of cards (one bullet can name two people), or {\"hidden\": true, \"reason\": ...}. Pictures under Reference_Anchors/ are named from the asset pipeline root. artName renames the shipped file. Look at every picture before naming it.",
+  "people": {
+    "Odbert": {
+      "place": "In Our Town", "icon": "🧔", "name": "Odbert",
+      "text": "He runs the Block and Tackle, a cozy tavern and shop. Mom left a secret box with him to keep safe. We saved Roger there two times, so Odbert treats us like royalty!"
+    },
+    "Moira": {
+      "place": "In Our Town", "icon": "🌿", "name": "Moira",
+      "art": "Reference_Anchors/npcs/moira_anchor_v1.png", "artName": "moira",
+      "text": "A sweet gnome who makes magic potions. Behind her shop is a safe, hidden home for kids whose magic woke up too soon. She gave us our first spells and told us about the Moon-Stone."
+    },
+    "Bree": {
+      "place": "In Our Town", "icon": "🔥", "name": "Bree",
+      "art": "Reference_Anchors/npcs/bree_anchor_v1.png", "artName": "bree",
+      "text": "A girl our age with magic fire. Some bullies made her so sad that flames burst out. We helped her calm down. Now she hides safe at Moira's, and she owes us a favor."
+    },
+    "The Sheriff": {
+      "place": "In Our Town", "icon": "⭐", "name": "The Sheriff",
+      "art": "Reference_Anchors/npcs/rivenshore_sheriff_anchor_v1.png", "artName": "the_sheriff",
+      "text": "He keeps our town safe. He is stern but fair. He paid us gold and gems for helping fix the town after the fire."
+    },
+    "Elara": {
+      "place": "In Our Town", "icon": "🧁", "name": "Elara",
+      "text": "She runs the Hearth and Honey Bakery. She thinks every hero is far too skinny!"
+    },
+    "Old man Grimma": {
+      "place": "In Our Town", "icon": "🧪", "name": "Old Man Grimma",
+      "art": "Reference_Anchors/npcs/grimma_anchor_v1.png", "artName": "grimma",
+      "text": "He runs the Shattered Potion shop. We chased looters away from it. He is extra fond of Rainbow because she heals people. His special potion is called Hypulation!"
+    },
+    "Bill & AJ": {
+      "place": "In Our Town", "icon": "🌾", "name": "Bill and AJ",
+      "text": "Bill is the miller, and AJ is his wife. We met them while fixing up the town, and we gave their mill its name. It is WaterPour Mill!"
+    },
+    "Old Fishy": {
+      "place": "In Our Town", "icon": "🎣", "name": "Old Fishy",
+      "text": "The oldest sailor in town. He says he once caught a giant rainbow jellyfish with a narwhal horn. Do you believe him?"
+    },
+    "Ella": {
+      "place": "In Our Town", "icon": "📦", "name": "Ella",
+      "text": "She is the boss of the kids who run errands in the Market Square. The butcher pays them the best!"
+    },
+    "Ameelea": {
+      "place": "In Our Town", "icon": "🏰", "name": "Ameelea",
+      "art": "Reference_Anchors/npcs/bully_ameelea_anchor_v1.png", "artName": "ameelea",
+      "text": "She was one of the kids who bullied Bree. She felt truly sorry, so we forgave her. Now Bree is invited to her fort."
+    },
+    "Pippa": {
+      "place": "In Our Town", "icon": "📚", "name": "Pippa",
+      "text": "She works at the Archives. She talks super fast and her papers go everywhere. We sorted her filing, and she let us go down to the old vault."
+    },
+    "Perriglossa": {
+      "place": "Under Our Town", "icon": "⚔️", "name": "Perriglossa",
+      "art": "Reference_Anchors/npcs/perriglossa_anchor_v1.png", "artName": "perriglossa",
+      "text": "A knight who guarded the old ruins for a very, very long time. Dark magic had hold of her until our last hit knocked it out. Now she comes with us."
+    },
+    "Suzie": [
+      {
+        "place": "Under Our Town", "icon": "🫢", "name": "Suzie",
+        "text": "A knight of the old ruins. She loves us, and she cannot stop hiccuping and burping!"
+      },
+      {
+        "place": "Under Our Town", "icon": "🛡️", "name": "Lima Protector",
+        "text": "A knight of the old ruins. She only ever says one thing: \"My name is Lima Protector, long ago I made an oath to protect the Limas, that is why my name is Lima Protector.\""
+      }
+    ],
+    "Queen Stars, the queen in the stone": {
+      "place": "Under Our Town", "icon": "👑", "name": "Queen Stars",
+      "art": "npcs/queen_of_aethelia.png", "artName": "queen_stars",
+      "text": "A queen made of stone. She opened her eyes when we lifted the Moon-Stone, and we named her Queen Stars. She said Rainbow's staff reminds her of the magic tools of long ago. Everything else, she says, will come later."
+    }
+  },
   "pets": {
     "status": "with_heroes",
     "text": "Your pet found you! Look for your friend under My Things on your hero page."

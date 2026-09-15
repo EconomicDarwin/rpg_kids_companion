@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "note": "GENERATED FILE. Run tools/export_player_data.py to regenerate. Do not edit by hand.",
-  "asOf": "After Session 5: The Knights Who Waited",
+  "asOf": "After Session 6: Queen Stars",
   "party": {
     "name": "The Lima Sisters",
     "gold": null,
@@ -260,6 +260,113 @@
       "text": "Bree is hiding at Moira's. She owes us a favor."
     }
   ],
+  "people": [
+    {
+      "place": "In Our Town",
+      "icon": "🧔",
+      "name": "Odbert",
+      "text": "He runs the Block and Tackle, a cozy tavern and shop. Mom left a secret box with him to keep safe. We saved Roger there two times, so Odbert treats us like royalty!",
+      "art": null
+    },
+    {
+      "place": "In Our Town",
+      "icon": "🌿",
+      "name": "Moira",
+      "text": "A sweet gnome who makes magic potions. Behind her shop is a safe, hidden home for kids whose magic woke up too soon. She gave us our first spells and told us about the Moon-Stone.",
+      "art": "art/moira.jpg"
+    },
+    {
+      "place": "In Our Town",
+      "icon": "🔥",
+      "name": "Bree",
+      "text": "A girl our age with magic fire. Some bullies made her so sad that flames burst out. We helped her calm down. Now she hides safe at Moira's, and she owes us a favor.",
+      "art": "art/bree.jpg"
+    },
+    {
+      "place": "In Our Town",
+      "icon": "⭐",
+      "name": "The Sheriff",
+      "text": "He keeps our town safe. He is stern but fair. He paid us gold and gems for helping fix the town after the fire.",
+      "art": "art/the_sheriff.jpg"
+    },
+    {
+      "place": "In Our Town",
+      "icon": "🧁",
+      "name": "Elara",
+      "text": "She runs the Hearth and Honey Bakery. She thinks every hero is far too skinny!",
+      "art": null
+    },
+    {
+      "place": "In Our Town",
+      "icon": "🧪",
+      "name": "Old Man Grimma",
+      "text": "He runs the Shattered Potion shop. We chased looters away from it. He is extra fond of Rainbow because she heals people. His special potion is called Hypulation!",
+      "art": "art/grimma.jpg"
+    },
+    {
+      "place": "In Our Town",
+      "icon": "🌾",
+      "name": "Bill and AJ",
+      "text": "Bill is the miller, and AJ is his wife. We met them while fixing up the town, and we gave their mill its name. It is WaterPour Mill!",
+      "art": null
+    },
+    {
+      "place": "In Our Town",
+      "icon": "🎣",
+      "name": "Old Fishy",
+      "text": "The oldest sailor in town. He says he once caught a giant rainbow jellyfish with a narwhal horn. Do you believe him?",
+      "art": null
+    },
+    {
+      "place": "In Our Town",
+      "icon": "📦",
+      "name": "Ella",
+      "text": "She is the boss of the kids who run errands in the Market Square. The butcher pays them the best!",
+      "art": null
+    },
+    {
+      "place": "In Our Town",
+      "icon": "🏰",
+      "name": "Ameelea",
+      "text": "She was one of the kids who bullied Bree. She felt truly sorry, so we forgave her. Now Bree is invited to her fort.",
+      "art": "art/ameelea.jpg"
+    },
+    {
+      "place": "In Our Town",
+      "icon": "📚",
+      "name": "Pippa",
+      "text": "She works at the Archives. She talks super fast and her papers go everywhere. We sorted her filing, and she let us go down to the old vault.",
+      "art": null
+    },
+    {
+      "place": "Under Our Town",
+      "icon": "⚔️",
+      "name": "Perriglossa",
+      "text": "A knight who guarded the old ruins for a very, very long time. Dark magic had hold of her until our last hit knocked it out. Now she comes with us.",
+      "art": "art/perriglossa.jpg"
+    },
+    {
+      "place": "Under Our Town",
+      "icon": "🫢",
+      "name": "Suzie",
+      "text": "A knight of the old ruins. She loves us, and she cannot stop hiccuping and burping!",
+      "art": null
+    },
+    {
+      "place": "Under Our Town",
+      "icon": "🛡️",
+      "name": "Lima Protector",
+      "text": "A knight of the old ruins. She only ever says one thing: \"My name is Lima Protector, long ago I made an oath to protect the Limas, that is why my name is Lima Protector.\"",
+      "art": null
+    },
+    {
+      "place": "Under Our Town",
+      "icon": "👑",
+      "name": "Queen Stars",
+      "text": "A queen made of stone. She opened her eyes when we lifted the Moon-Stone, and we named her Queen Stars. She said Rainbow's staff reminds her of the magic tools of long ago. Everything else, she says, will come later.",
+      "art": "art/queen_stars.jpg"
+    }
+  ],
   "journal": [
     {
       "session": 1,
@@ -290,6 +397,12 @@
       "title": "The Knights Who Waited",
       "text": "We went down the mossy stairs into old ruins under the town. We found a shiny silver brooch tucked in a wall. Then we came to a huge hall with our family crest on it. Three knight ladies were still guarding it after all this time. Two of them saw our rings and knelt right down. The third one had dark magic on her, so we had to fight. Our very last hit knocked the dark magic out of her and healed her! Her name is Perriglossa and now she comes with us. We camped inside a ring of glowing Star-Seed briars. A music box had played for us the whole way down, and when we picked it up it finally stopped. It was waiting for its owners to come home! Then we lifted the Moon-Stone together, four hands at once. A stone queen on the wall opened her eyes!",
       "art": "art/hollow_watch_kneels.jpg"
+    },
+    {
+      "session": 6,
+      "title": "Queen Stars",
+      "text": "The stone queen was awake, and she could talk! We gave her a name. She is Queen Stars. Then we asked her question after question. What was her life like? Why did she turn to stone? Does she know our mom? Why is Sky-Saver's sword made of clouds? She looked at Rainbow's staff and said it reminded her of the magic tools of long ago. For everything else she said, \"Later.\" We cannot wait for later!",
+      "art": "art/sisters_meet_the_queen.jpg"
     }
   ]
 }

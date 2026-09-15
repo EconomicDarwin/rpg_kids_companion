@@ -13,9 +13,11 @@ Needs Python 3.8+ and Pillow (`pip install Pillow`).
 | `tools/kid_text.json` | The allow-list: what ships and how it reads for the kids. Kid rewrites of ability text, item and quest descriptions, icons, accents, banner art picks. |
 | `tools/journal.md` | Authored kid-facing journal entries, one per played session, each able to name one picture. |
 
-The design is default-closed. Every hero, quest, inventory item, spell, and session
-log found in canon must have a matching entry here, an `excludedHeroes` reason, or a
-quest `"hidden": true` marker. Anything undecided fails the export with a specific
+The design is default-closed. Every hero, quest, inventory item, spell, session
+log, and person found in canon must have a matching entry here, an `excludedHeroes`
+reason, or a quest or person `"hidden": true` marker. People come from the bullets in
+canon `current_state.md`'s "NPC Relationships" section, keyed by each bullet's first
+bold name. One bullet can ship as a list of cards when it names two people. Anything undecided fails the export with a specific
 error. Anything here that canon no longer backs also fails (stale entry). Kid-facing
 text containing an em-dash, en-dash, semicolon, or `❓` fails. Never weaken any of
 this to "skip silently" — silent skipping is how a secret leaks or a reward goes

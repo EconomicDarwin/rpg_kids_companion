@@ -390,12 +390,21 @@ class Exporter:
         journal = self.parse_journal()
         art_jobs: dict[str, Path] = {}
 
-        def add_art(rel_to_final_art: str, where: str) -> str | None:
-            src = self.canon / FINAL_ART_REL / rel_to_final_art
+        def add_art(rel_to_final_art: str, where: str, ship_as: str | None = None) -> str | None:
+            # Paths are under Final_Art, except portrait anchors, which are named
+            # from the asset pipeline root ("Reference_Anchors/npcs/..."). ship_as
+            # renames the shipped file, for canon filenames that would give away a
+            # secret or read oddly (queen_of_aethelia, bully_ameelea_anchor_v1).
+            if rel_to_final_art.startswith("Reference_Anchors/"):
+                src = self.canon / FINAL_ART_REL.parent / rel_to_final_art
+            else:
+                src = self.canon / FINAL_ART_REL / rel_to_final_art
             if not src.is_file():
                 self.err(f"Art file missing in canon for {where}: {src}")
                 return None
             dest = self.web_art_name(src)
+            if ship_as:
+                dest = ship_as + Path(dest).suffix
             if dest in art_jobs and art_jobs[dest] != src:
                 self.err(f"Art name collision: {dest} wanted from both {art_jobs[dest]} and {src}")
                 return None
@@ -629,6 +638,50 @@ class Exporter:
         pets = overlay["pets"]
         self.lint_kid(pets["text"], "pets text")
 
+        # --- people: every NPC Relationships bullet needs cards or a hidden marker ---
+        people_out = []
+        people_overlay = overlay.get("people", {})
+        canon_people: list[str] = []
+        state_md = self.read_canon("01_Campaign_Bible/current_state.md")
+        npc_sec = self.section(state_md, 2, "NPC Relationships") if state_md else None
+        if npc_sec is None:
+            self.err("current_state.md: section 'NPC Relationships' not found")
+        else:
+            for line in (l.strip() for l in npc_sec.splitlines()):
+                if not line.startswith("- "):
+                    continue
+                m = re.match(r"^- \*\*(.+?)\*\*", line)
+                if m:
+                    canon_people.append(m.group(1))
+                else:
+                    self.err(f"current_state.md NPC Relationships: bullet without a bold name: {line!r}")
+        for key in canon_people:
+            ov = people_overlay.get(key)
+            if ov is None:
+                self.err(
+                    f"Canon person {key!r} (current_state.md NPC Relationships) has no allow-list "
+                    f'decision. Add a card or mark it {{"hidden": true, "reason": ...}} in tools/kid_text.json.'
+                )
+                continue
+            if isinstance(ov, dict) and ov.get("hidden"):
+                self.excluded.append(f"person {key!r}: {ov.get('reason', 'no reason given')}")
+                continue
+            for card in ov if isinstance(ov, list) else [ov]:
+                missing = [f for f in ("place", "icon", "name", "text") if not card.get(f)]
+                if missing:
+                    self.err(f"kid_text.json person {key!r}: card is missing {missing}")
+                    continue
+                for field in ("place", "name", "text"):
+                    self.lint_kid(card[field], f"person {card['name']!r} {field}")
+                person = {"place": card["place"], "icon": card["icon"], "name": card["name"],
+                          "text": card["text"], "art": None}
+                if card.get("art"):
+                    person["art"] = add_art(card["art"], f"person {card['name']!r}", card.get("artName"))
+                people_out.append(person)
+        for key in people_overlay:
+            if key not in canon_people:
+                self.err(f"kid_text.json person {key!r} not found in current_state NPC Relationships (stale?)")
+
         if self.errors:
             return None, art_jobs
 
@@ -645,6 +698,7 @@ class Exporter:
             "heroes": heroes_out,
             "pets": pets,
             "quests": quests_out,
+            "people": people_out,
             "journal": journal_out,
         }
         return data, art_jobs
