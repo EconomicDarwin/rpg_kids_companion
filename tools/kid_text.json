@@ -129,9 +129,8 @@
       "text": "Mom said do not follow her. Find the old strongholds of our people instead."
     },
     "The Sealed Path": {
-      "icon": "🗺️",
-      "name": "The Sealed Path",
-      "text": "Silas's old map shows a high mountain pass marked with our crest. The elders say to stay away. Why?"
+      "hidden": true,
+      "reason": "Never played. Per the GM (2026-09-15) the girls have not met Silas or seen his map. Canon current_state.md and rivenshore.md wrongly mark it revealed, and it points at the Sun-half arc."
     },
     "Ameelea & Bree": {
       "icon": "🤝",
