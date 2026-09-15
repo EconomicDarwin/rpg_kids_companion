@@ -8,6 +8,11 @@
     "goldNote": "Your gold and gems are real! Count them in your own pouch.",
     "sharedItems": [
       {
+        "icon": "🌙",
+        "name": "The Moon-Stone",
+        "text": "The lost heart of the old kingdom. It is shaped like the moon on our family crest. We found it deep under our town!"
+      },
+      {
         "icon": "📔",
         "name": "The Ancient Field Log",
         "text": "An old explorer's notebook full of clues."
@@ -20,7 +25,7 @@
       {
         "icon": "✨",
         "name": "Pouch of Star-Seeds",
-        "text": "Tiny seeds that glow like stars. 3 uses left."
+        "text": "Tiny seeds that glow like stars. 2 uses left."
       },
       {
         "icon": "💌",
@@ -41,6 +46,11 @@
         "icon": "📿",
         "name": "The Silver Brooch",
         "text": "We found it in the old ruins under the town. Nobody knows what it is for yet."
+      },
+      {
+        "icon": "🎶",
+        "name": "The Old Music Box",
+        "text": "It played music in the ruins for a very, very long time. When we came, it stopped. Now it is quiet."
       }
     ]
   },
@@ -94,6 +104,11 @@
           "name": "Ring of Sisters Lima",
           "art": "art/ring_of_sisters_lima_card_art.jpg",
           "text": "Worn on her hand. It glows when the sisters are together."
+        },
+        {
+          "icon": "📖",
+          "name": "The Rainbow Book of Everyone",
+          "text": "Ask your book one question about someone you can see. It writes one true answer in rainbow ink. It answers only one question about each thing, ever. Write a new friend in your book, and talking to them gets 1 extra die."
         },
         {
           "icon": "🧚",
@@ -159,6 +174,11 @@
           "text": "A golden gem you found at the bottom of a pool. It drinks up daylight and shines in the dark. It is the key that opened the old door."
         },
         {
+          "icon": "📢",
+          "name": "The Sky-Saver Shout",
+          "text": "Once a battle, shout out loud and tell a monster why it should stop. Roll 2 dice. A 5 or a 6 means it stops fighting! If not, it gets so rattled that it comes at you and rolls 1 less die."
+        },
+        {
           "icon": "🐱",
           "name": "Starry",
           "art": "art/star_kitten.jpg",
@@ -210,14 +230,14 @@
   },
   "quests": [
     {
+      "icon": "👑",
+      "name": "Queen Stars",
+      "text": "Deep under our town, a queen made of stone opened her eyes. We named her Queen Stars. We asked her lots and lots of questions."
+    },
+    {
       "icon": "🏰",
       "name": "Seek the Forgotten Strongholds",
       "text": "Mom said do not follow her. Find the old strongholds of our people instead."
-    },
-    {
-      "icon": "🌙",
-      "name": "Find the Moon-Stone",
-      "text": "Moira told us about the Moon-Stone. It is the lost heart of the old kingdom and it is hidden under our town. We opened the sealed door with the sun-jewel and climbed down. Now we hunt for it in the old ruins."
     },
     {
       "icon": "🗺️",

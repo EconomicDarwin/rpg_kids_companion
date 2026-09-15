@@ -55,6 +55,19 @@ Do this once per tablet:
 4. Accept the name and tap **Add**. An icon appears on the Fire home screen (it may land in a "Web Apps" style grouping depending on Fire OS version).
 5. Open the app from the icon, pick that tablet's hero, then turn WiFi off and reopen it to confirm offline mode works before handing it over.
 
+## 3b. Install on a laptop (Edge or Chrome)
+
+Same app and same URL as the tablets. Do this once per laptop:
+
+1. Open **Edge** or **Chrome** and go to `https://<project-name>.pages.dev`. Let it load fully once.
+2. Install it as an app:
+   - **Edge:** the **...** menu, then **Apps**, then **Install this site as an app**.
+   - **Chrome:** click the small install icon at the right end of the address bar. If it is not there, use the **⋮** menu, then **Cast, save, and share**, then **Install page as app**.
+3. It opens in its own window with the moon icon, and it lands in the Start menu. Pin it to the taskbar if the girls should find it easily.
+4. Pick that laptop's hero. Wide windows get the laptop layout. Shrink the window and it turns back into the tablet layout.
+
+Updates work exactly like the tablets: press and hold the gear, then **Check for updates**.
+
 ## 4. Every-deploy checklist
 
 Run through this after every between-session update:

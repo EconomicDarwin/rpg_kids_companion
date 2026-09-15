@@ -5,13 +5,15 @@
     "goldTracking": false,
     "goldUnknownNote": "Your gold and gems are real! Count them in your own pouch.",
     "sharedItems": {
+      "The Moon-Stone": { "icon": "🌙", "text": "The lost heart of the old kingdom. It is shaped like the moon on our family crest. We found it deep under our town!" },
       "The Ancient Field Log": { "icon": "📔", "text": "An old explorer's notebook full of clues." },
       "The Wayfinder Prism": { "icon": "🔮", "text": "A crystal that turns light into rainbows." },
-      "Pouch of Star-Seeds": { "icon": "✨", "text": "Tiny seeds that glow like stars. 3 uses left." },
+      "Pouch of Star-Seeds": { "icon": "✨", "text": "Tiny seeds that glow like stars. 2 uses left." },
       "Mom's letter": { "icon": "💌", "name": "Mom's Letter", "text": "Sealed with purple wax. It is from Mom!" },
       "Torn letter from Odbert's box": { "icon": "📜", "name": "The Torn Letter", "text": "From Odbert's box. Part of it is missing." },
       "Iridescent shield-boss stone": { "icon": "🌈", "name": "The Shield-Boss Stone", "text": "A shimmering stone. It fits the picture on the cavern wall." },
-      "Silver brooch": { "icon": "📿", "name": "The Silver Brooch", "text": "We found it in the old ruins under the town. Nobody knows what it is for yet." }
+      "Silver brooch": { "icon": "📿", "name": "The Silver Brooch", "text": "We found it in the old ruins under the town. Nobody knows what it is for yet." },
+      "The Æthelia music box": { "icon": "🎶", "name": "The Old Music Box", "text": "It played music in the ruins for a very, very long time. When we came, it stopped. Now it is quiet." }
     }
   },
   "heroes": [
@@ -38,7 +40,12 @@
           "art": "equipment/ring_of_sisters_lima_card_art.png",
           "text": "Worn on her hand. It glows when the sisters are together."
         },
-        "pet: Rainbow Fairy": {
+        "the Rainbow Book of Everyone": {
+          "icon": "📖",
+          "name": "The Rainbow Book of Everyone",
+          "text": "Ask your book one question about someone you can see. It writes one true answer in rainbow ink. It answers only one question about each thing, ever. Write a new friend in your book, and talking to them gets 1 extra die."
+        },
+        "pet: Rainbow Fairy (the hearth fairy)": {
           "icon": "🧚",
           "name": "Rainbow Fairy",
           "art": "pets/hearth_fairy.png",
@@ -74,6 +81,11 @@
           "name": "The Sun-Jewel",
           "text": "A golden gem you found at the bottom of a pool. It drinks up daylight and shines in the dark. It is the key that opened the old door."
         },
+        "the Sky-Saver Shout": {
+          "icon": "📢",
+          "name": "The Sky-Saver Shout",
+          "text": "Once a battle, shout out loud and tell a monster why it should stop. Roll 2 dice. A 5 or a 6 means it stops fighting! If not, it gets so rattled that it comes at you and rolls 1 less die."
+        },
         "pet: Constellation Kitten (\"Starry\"), the star-kitten": {
           "icon": "🐱",
           "name": "Starry",
@@ -101,15 +113,19 @@
     "Fire in Disguise": "Guest hero played by Mom. Not one of the sisters. Stays out of the app."
   },
   "quests": {
+    "The waking queen": {
+      "icon": "👑",
+      "name": "Queen Stars",
+      "text": "Deep under our town, a queen made of stone opened her eyes. We named her Queen Stars. We asked her lots and lots of questions."
+    },
+    "The Moon waits for the Sun": {
+      "hidden": true,
+      "reason": "Hints that the Moon-Stone is half of something. current_state.md lists the Sun-half as not yet known at the table. GM to confirm before it ships."
+    },
     "Find mother": {
       "icon": "🏰",
       "name": "Seek the Forgotten Strongholds",
       "text": "Mom said do not follow her. Find the old strongholds of our people instead."
-    },
-    "The Moon-Stone": {
-      "icon": "🌙",
-      "name": "Find the Moon-Stone",
-      "text": "Moira told us about the Moon-Stone. It is the lost heart of the old kingdom and it is hidden under our town. We opened the sealed door with the sun-jewel and climbed down. Now we hunt for it in the old ruins."
     },
     "The Sealed Path": {
       "icon": "🗺️",

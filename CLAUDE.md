@@ -1,7 +1,9 @@
 # CLAUDE.md — The Hero's Book
 
 Companion PWA for the Lima Clan tabletop campaign. Runs on the girls' Amazon Fire tablets
-(Silk browser). It is a viewer and light bookkeeper over `app/data/player_data.json`, not a
+(Silk browser) and their laptops (Edge or Chrome). Screens 900px and wider get the laptop
+layout (side rail, two-column cards) from one media query at the bottom of `app/css/app.css`.
+Check both widths when changing layout. It is a viewer and light bookkeeper over `app/data/player_data.json`, not a
 way to play the game. Read `README.md` for the full brief; it is accurate and current.
 
 ## The sibling canon repo (READ-ONLY)

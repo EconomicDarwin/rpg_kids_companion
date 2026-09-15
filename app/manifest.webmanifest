@@ -4,7 +4,7 @@
   "description": "Companion book for the Lima Clan adventure. Your hero, your spells, your treasure, your story.",
   "start_url": "./",
   "display": "standalone",
-  "orientation": "portrait",
+  "orientation": "any",
   "background_color": "#1b1035",
   "theme_color": "#5b3fbf",
   "icons": [
