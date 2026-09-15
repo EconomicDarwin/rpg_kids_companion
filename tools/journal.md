@@ -69,4 +69,8 @@ silver brooch tucked in a wall. Then we came to a huge hall with our family cres
 on it. Three knight ladies were still guarding it after all this time. Two of them
 saw our rings and knelt right down. The third one had dark magic on her, so we had
 to fight. Our very last hit knocked the dark magic out of her and healed her! Her
-name is Perriglossa and now she comes with us.
+name is Perriglossa and now she comes with us. We camped inside a ring of glowing
+Star-Seed briars. A music box had played for us the whole way down, and when we
+picked it up it finally stopped. It was waiting for its owners to come home! Then
+we lifted the Moon-Stone together, four hands at once. A stone queen on the wall
+opened her eyes!

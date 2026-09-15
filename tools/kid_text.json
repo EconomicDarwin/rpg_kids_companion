@@ -13,7 +13,7 @@
       "Torn letter from Odbert's box": { "icon": "📜", "name": "The Torn Letter", "text": "From Odbert's box. Part of it is missing." },
       "Iridescent shield-boss stone": { "icon": "🌈", "name": "The Shield-Boss Stone", "text": "A shimmering stone. It fits the picture on the cavern wall." },
       "Silver brooch": { "icon": "📿", "name": "The Silver Brooch", "text": "We found it in the old ruins under the town. Nobody knows what it is for yet." },
-      "The Æthelia music box": { "icon": "🎶", "name": "The Old Music Box", "text": "It played music in the ruins for a very, very long time. When we came, it stopped. Now it is quiet." }
+      "The Æthelia music box": { "icon": "🎶", "name": "The Old Music Box", "text": "It played music in the ruins for a very, very long time. When we picked it up, it stopped. It was waiting for its owners to come home!" }
     }
   },
   "heroes": [
@@ -119,8 +119,9 @@
       "text": "Deep under our town, a queen made of stone opened her eyes. We named her Queen Stars. We asked her lots and lots of questions."
     },
     "The Moon waits for the Sun": {
-      "hidden": true,
-      "reason": "Hints that the Moon-Stone is half of something. current_state.md lists the Sun-half as not yet known at the table. GM to confirm before it ships."
+      "icon": "🌗",
+      "name": "The Moon Waits for the Sun",
+      "text": "Our family crest has a moon and a sun. We found the moon part. Where is the sun part? Queen Stars has not told us yet."
     },
     "Find mother": {
       "icon": "🏰",
