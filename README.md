@@ -1,5 +1,27 @@
 # The Hero's Book
 
+> ## ARCHIVED, 2026-09-26
+>
+> **This repo has been replaced by `heros_book/` in the canon repo (`rpg_kids`).**
+>
+> The girls do not use tablets. They read on the family Windows PC, on the local
+> network, which syncs OneDrive. That removed the whole reason this was built as a
+> hosted, offline-capable PWA, so the export, the allow-list (`tools/kid_text.json`)
+> and the journal (`tools/journal.md`) moved into the canon repo, and the book is now
+> one page the girls open by double-clicking it out of a shared OneDrive folder.
+> See `rpg_kids/heros_book/README.md`.
+>
+> Nothing here is deleted and nothing here is broken. This repo stays exactly as it is
+> until the replacement has run one real game session, so there is something to fall
+> back to. During that overlap the DM's Book still reads `app/data/player_data.json`
+> and `tools/kid_text.json` from here, so those two were refreshed by hand on
+> 2026-09-26 from the new builder's output.
+>
+> **Three things to do when the overlap ends:** turn off the Cloudflare Pages
+> deployment (see `docs/hosting.md`), point the DM's Book at the canon repo, and
+> stop running `tools/export_player_data.py`. `rpg_kids/heros_book/kid_text.json`
+> is the live allow-list now. The copy here is frozen.
+
 A companion app for the Lima Clan tabletop campaign (see the private `rpg_kids` repo). It runs on the girls' Amazon Fire tablets and replaces the growing pile of paper: character sheets, spell and item cards, gold tracking, and quest notes. It is **not** a way to play the game. The game stays at the table with dice and printed loot cards. This is each hero's storybook and satchel.
 
 ## Design Pillars

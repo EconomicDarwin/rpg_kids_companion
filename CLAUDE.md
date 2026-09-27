@@ -1,5 +1,11 @@
 # CLAUDE.md — The Hero's Book
 
+> **ARCHIVED 2026-09-26. Do not build here.** This repo was replaced by `heros_book/`
+> in the canon repo (`rpg_kids`), which is where the export, the allow-list and the
+> journal now live. Work on the girls' book happens there. This checkout is kept
+> working, untouched, as a fallback until the replacement has run one real session.
+> Read the banner at the top of `README.md` before changing anything here.
+
 Companion PWA for the Lima Clan tabletop campaign. Runs on the girls' Amazon Fire tablets
 (Silk browser) and their laptops (Edge or Chrome). Screens 900px and wider get the laptop
 layout (side rail, two-column cards) from one media query at the bottom of `app/css/app.css`.

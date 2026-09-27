@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "note": "GENERATED FILE. Run tools/export_player_data.py to regenerate. Do not edit by hand.",
-  "asOf": "After Session 6: Queen Stars",
+  "note": "GENERATED FILE. Run heros_book/build_hero_book.py to regenerate. Do not edit by hand.",
+  "asOf": "After Session 6: Queen Stars Answers Everything",
   "party": {
     "name": "The Lima Sisters",
     "gold": null,
@@ -193,14 +193,9 @@
   },
   "quests": [
     {
-      "icon": "👑",
-      "name": "Queen Stars",
-      "text": "Deep under our town, a queen made of stone opened her eyes. We named her Queen Stars. We asked her lots and lots of questions."
-    },
-    {
       "icon": "🌗",
       "name": "The Moon Waits for the Sun",
-      "text": "Our family crest has a moon and a sun. We found the moon part. Where is the sun part? Queen Stars has not told us yet."
+      "text": "Our family crest has a moon and a sun. We found the moon part, and it gave Queen Stars back half of her light. The sun half is still lost. Queen Stars does not know where it is either, so it is up to us."
     },
     {
       "icon": "🏰",
@@ -224,7 +219,7 @@
       "icon": "🧔",
       "name": "Odbert",
       "text": "He runs the Block and Tackle, a cozy tavern and shop. Mom left a secret box with him to keep safe. We saved Roger there two times, so Odbert treats us like royalty!",
-      "art": null
+      "art": "art/odbert.jpg"
     },
     {
       "place": "In Our Town",
@@ -252,7 +247,7 @@
       "icon": "🧁",
       "name": "Elara",
       "text": "She runs the Hearth and Honey Bakery. The window over her oven shows a rainbow breaking through dark clouds. She says the old queens of the valley brought light to the darkest storms, so she bakes rainbow cookies for them. We told her we are Limas!",
-      "art": null
+      "art": "art/elara.jpg"
     },
     {
       "place": "In Our Town",
@@ -266,21 +261,21 @@
       "icon": "🌾",
       "name": "Bill and AJ",
       "text": "Bill is the miller, and AJ is his wife. We met them while fixing up the town, and we gave their mill its name. It is WaterPour Mill!",
-      "art": null
+      "art": "art/bill_and_aj.jpg"
     },
     {
       "place": "In Our Town",
       "icon": "🎣",
       "name": "Old Fishy",
       "text": "The oldest sailor in town. He says he once caught a giant rainbow jellyfish with a narwhal horn. Do you believe him?",
-      "art": null
+      "art": "art/old_fishy.jpg"
     },
     {
       "place": "In Our Town",
       "icon": "📦",
       "name": "Ella",
       "text": "She is the boss of the kids who run errands in the Market Square. The butcher pays them the best!",
-      "art": null
+      "art": "art/ella.jpg"
     },
     {
       "place": "In Our Town",
@@ -294,7 +289,7 @@
       "icon": "📚",
       "name": "Pippa",
       "text": "She works at the Archives. She talks super fast and her papers go everywhere. We sorted her filing, and she let us go down to the old vault.",
-      "art": null
+      "art": "art/pippa.jpg"
     },
     {
       "place": "Under Our Town",
@@ -308,20 +303,20 @@
       "icon": "🫢",
       "name": "Suzie",
       "text": "A knight of the old ruins. She loves us, and she cannot stop hiccuping and burping!",
-      "art": null
+      "art": "art/suzie.jpg"
     },
     {
       "place": "Under Our Town",
       "icon": "🛡️",
       "name": "Lima Protector",
       "text": "A knight of the old ruins. She only ever says one thing: \"My name is Lima Protector, long ago I made an oath to protect the Limas, that is why my name is Lima Protector.\"",
-      "art": null
+      "art": "art/lima_protector.jpg"
     },
     {
       "place": "Under Our Town",
       "icon": "👑",
       "name": "Queen Stars",
-      "text": "A queen made of stone. She opened her eyes when we lifted the Moon-Stone, and we named her Queen Stars. She said Rainbow's staff reminds her of the magic tools of long ago. Everything else, she says, will come later.",
+      "text": "A queen made of stone. She opened her eyes when we lifted the Moon-Stone, and we named her Queen Stars. Over two nights she answered every single question we asked her. She is stone from the shoulders down, so she cannot leave her room, and she is our family from a very long time ago.",
       "art": "art/queen_stars.jpg"
     }
   ],
@@ -358,8 +353,8 @@
     },
     {
       "session": 6,
-      "title": "Queen Stars",
-      "text": "The stone queen was awake, and she could talk! We gave her a name. She is Queen Stars. Then we asked her question after question. What was her life like? Why did she turn to stone? Does she know our mom? Why is Sky-Saver's sword made of clouds? She looked at Rainbow's staff and said it reminded her of the magic tools of long ago. For everything else she said, \"Later.\" We cannot wait for later!",
+      "title": "Queen Stars Answers Everything",
+      "text": "The stone queen was awake, and she could talk! We gave her a name. She is Queen Stars. Then we asked her question after question, and over two nights she answered every single one. The Usurper is a shadow from a dark place far away, and he has no light of his own, so he takes other people's. Queen Stars put both her hands on the Moon-Stone and asked it to keep her hidden, and that is how she turned to stone. The Moon-Stone gave her back half of her light, and the other half, the sun half, is still lost. Best of all, she felt our mom walk over her roof a few years ago, warm and brave and very tired, with two tiny sparks beside her. The sparks were us! She says the light in Rainbow's staff is Rainbow's very own, and Sky-Saver's sword is made of clouds because clouds and light make a rainbow.",
       "art": "art/sisters_meet_the_queen.jpg"
     }
   ]
