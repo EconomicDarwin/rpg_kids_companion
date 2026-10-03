@@ -7,6 +7,12 @@ what is particular to this repo. Fixed headings, in this order: About this repo,
 Documentation sweep, Sensitivity check, The gate, The narrow gate, Commit rules, The pick-up
 prompt. No branch name, model name, or machine path here, so derive them at run time.
 
+**History.** This repo carried its own `.claude/skills/wrap-session/SKILL.md` until 2026-10-02.
+It was retired that day, because the personal side keeps its wrap skills in one place, the
+`personal` repo, and everything it knew now lives in this profile. The day's handoff document
+is in the sibling `personal` checkout too, under `handoff/`, and never in this repo, which
+deploys publicly.
+
 ## About this repo
 
 "The Hero's Book", the girls' companion app for the Lima Clan campaign. A plain HTML, CSS and
@@ -28,15 +34,32 @@ every push to `main` deploys `app/` to Cloudflare Pages automatically.
 2. **The cache bump travels with the deploy.** If anything under `app/` changed, `CACHE_VERSION`
    in `app/sw.js` must be bumped in the same push, or the tablets will show the old app and it
    will look like nothing happened.
-3. **If canon moved, rerun the export** (`python tools/export_player_data.py`) so
-   `app/data/player_data.json` matches, and record in your section which canon commit it reflects.
-   The export fails loudly on any canon entity with no allow-list decision in
-   `tools/kid_text.json`, and that default-closed behavior is the filter. Never weaken it to skip
-   silently.
+3. **If canon moved, rerun the export** so `app/data/player_data.json` matches, and record in
+   your section which canon commit it reflects. Canon moved if a game session was logged or
+   campaign data otherwise changed since the last wrap. In order:
+   1. `python tools/export_player_data.py --check` from the repo root. It writes nothing and
+      lists exactly what is new and undecided: new heroes, quests, items, spells, or a session
+      with no journal entry. It fails loudly on any canon entity with no allow-list decision,
+      and that default-closed behavior is the filter. Never weaken it to skip silently.
+   2. For each item it flags, author kid text in `tools/kid_text.json`, add the session's entry
+      to `tools/journal.md` (the heading in the exact form the existing entries use, then 2 to 4
+      short kid-sized sentences of table-revealed facts only), or mark a quest hidden with a
+      reason if it should not ship yet.
+   3. `python tools/export_player_data.py` for real, then review the printed "Secrets filter
+      exclusions" list. Everything on it stays hidden from the girls. If something revealed at
+      the table shows up there, fix the allow-list rather than accepting it.
+4. **Say the tablet step in every wrap report that pushed.** The push redeploys by itself, but
+   each tablet still needs "force an update check" in the grown-up corner once the deploy shows
+   Success in the dashboard. Claude cannot do that part.
 
 ## Documentation sweep
 
-- **`README.md`**: the full brief, and it is expected to stay accurate and current.
+- **`README.md`**: the full brief, and it is expected to stay accurate and current. Above all the
+  Roadmap when scope moved, the App Layout table when tabs changed, and the export contract when
+  the canon to app field mapping changed.
+- **`docs/canon_repo_proposal.md`**: the standing list of changes this repo asks of canon. Mark
+  an item resolved when the user says it was applied in `../rpg_kids`, and otherwise leave it
+  open.
 - **`CLAUDE.md`**: when a rule, a boundary, or a tech constraint changed.
 - **`docs/hosting.md`**: when anything about the Cloudflare Pages setup, the deploy or the
   troubleshooting changed.
@@ -96,7 +119,8 @@ this repo never edits canon.
 
 - **A terminal wrap never commits or pushes.**
 - Commit by path, never `git add -A` and never `commit -a`. One commit per coherent chunk, for
-  example the export separately from a screen.
+  example the export separately from a screen. Check `git status` for strays first, above all
+  leftover `app/art/` files that an export with `--prune-art` would have removed.
 - **The deploy rule:** an `app/` change, its cache bump, and a regenerated `player_data.json` go
   in the same push, because a partial push deploys a partial app.
 - Push only when the user asked, and say in the report that the push deployed.

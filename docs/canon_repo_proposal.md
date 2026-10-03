@@ -1,5 +1,10 @@
 # Proposal: changes to carry over to the rpg_kids canon repo
 
+> **Status as of 2026-10-02, section 1: resolved another way.** Canon's own wrap-session
+> skill no longer exists. Both repos now wrap with the shared personal skills, and canon's
+> `WRAP_PROFILE.md` names the Hero's Book export as a follow-up in every wrap report. The
+> steps below are kept for the record.
+
 > **Status as of 2026-07-27.**
 > - **Section 1 (the wrap step): still open.** Checked directly: canon's
 >   `.claude/skills/wrap-session/SKILL.md` has no companion-app step. Sessions 04
